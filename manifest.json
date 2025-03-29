@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Shift Calendar View",
+  "version": "1.0",
+  "description": "Transforms shift table into a calendar view",
+  "icons": {
+    "48": "icons/icon.png"
+  },
+  "permissions": [
+    "https://edm.meduniwien.ac.at/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://edm.meduniwien.ac.at/dienstplan.php*"],
+      "js": ["scripts/shiftCalendar.js", "scripts/shiftCalendarPlugin.js"]
+    }
+  ]
+} 
