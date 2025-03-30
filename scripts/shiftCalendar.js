@@ -44,7 +44,6 @@ function createShiftCalendar(shifts, personName, month, year, containerId) {
         return weeks;
     }
 
-    // Create calendar HTML
     function createCalendar() {
         const container = document.getElementById(containerId);
         const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -52,7 +51,6 @@ function createShiftCalendar(shifts, personName, month, year, containerId) {
         console.log(month)
         const monthName = new Date(year, month).toLocaleString('default', { month: 'long' });
 
-        // Create calendar structure
         const html = `
             <div class="calendar">
                 <h2>${personName}'s Shifts - ${monthName} ${year}</h2>
@@ -94,44 +92,5 @@ function createShiftCalendar(shifts, personName, month, year, containerId) {
         container.innerHTML = html;
     }
 
-    // Add styles
-    function addStyles() {
-        const styles = `
-            <style>
-                .calendar {
-                    margin: 20px;
-                }
-                .calendar table {
-                    width: 100%;
-                    border-collapse: collapse;
-                }
-                .calendar th, .calendar td {
-                    border: 1px solid #ddd;
-                    padding: 8px;
-                    text-align: left;
-                    height: 100px;
-                    vertical-align: top;
-                }
-                .calendar th {
-                    background-color: #f5f5f5;
-                    height: auto;
-                }
-                .day-number {
-                    font-weight: bold;
-                    margin-bottom: 5px;
-                }
-                .shift-info {
-                    background-color: #e3f2fd;
-                    padding: 4px;
-                    border-radius: 4px;
-                    font-size: 0.9em;
-                }
-            </style>
-        `;
-        document.head.insertAdjacentHTML('beforeend', styles);
-    }
-
-    // Initialize calendar
-    addStyles();
     createCalendar();
 }

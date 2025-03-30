@@ -1,66 +1,14 @@
 // Create and inject styles
 function addStyles() {
-    const styles = `
-        .shift-calendar {
-            margin: 20px;
-            font-family: Arial, sans-serif;
-        }
-        .shift-calendar table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .shift-calendar th, .shift-calendar td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-            height: 100px;
-            vertical-align: top;
-        }
-        .shift-calendar th {
-            background-color: #f5f5f5;
-            height: auto;
-        }
-        .day-number {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .shift-info {
-            background-color: #e3f2fd;
-            padding: 4px;
-            border-radius: 4px;
-            font-size: 0.9em;
-        }
-        .weekend {
-            background-color: #fff3e0;
-        }
-        .shift-select {
-            margin: 20px;
-            padding: 10px;
-        }
-        .shift-controls {
-            margin: 20px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        .shift-button {
-            padding: 8px 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .shift-button:hover {
-            background-color: #45a049;
-        }
-    `;
+    var runtimBrowser = typeof browser !== "undefined"  ? browser : chrome;
+
     if (!document.getElementById('shift-calendar-styles')) {
-        const styleSheet = document.createElement("style");
-        styleSheet.id = 'shift-calendar-styles';
-        styleSheet.innerText = styles;
-        document.head.appendChild(styleSheet);
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = chrome.runtime.getURL("styles/calendar.css");
+        console.log(link.href)
+        document.head.appendChild(link);
     }
 }
 
@@ -214,7 +162,9 @@ function initializeShiftCalendar() {
 
     const tables = document.getElementsByTagName('table');
     const lastTable = tables[tables.length - 1];
-    if (!lastTable) return;
+    if (!lastTable){
+        return;
+    } 
 
     // Check if calendar already exists
     if (document.getElementById('shift-calendar-container')) {
@@ -238,7 +188,6 @@ function initializeShiftCalendar() {
     calendarContainer.id = 'calendar-container';
     container.appendChild(calendarContainer);
 
-    console.log(shifts)
     // Update calendar when person is selected
     controls.selector.addEventListener('change', (e) => {
         const selectedPerson = e.target.value;
@@ -277,7 +226,6 @@ function init() {
     }
 }
 
-// Run initialization when the DOM is fully loaded
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
 } else {
