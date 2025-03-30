@@ -73,6 +73,20 @@ function createPersonSelector(shifts) {
         select.appendChild(option);
     });
 
+    select.addEventListener('change', function(){
+        const hideButton = document.getElementById('hide-button');
+        const calendar = document.getElementById('calendarToHide');
+        if (window.getComputedStyle(calendar).display === "none"){
+            calendar.style.display = "block";
+            hideButton.textContent = `Hide ${select.value} shifts`;
+
+        }
+        else{
+            calendar.style.display = "none";
+            hideButton.textContent = `Show ${select.value} shifts`;
+        }
+    })
+
     return select;
 }
 
@@ -82,22 +96,54 @@ function createControls(shifts) {
     controlsContainer.className = 'shift-controls';
 
     // Create person selector
-    const selector = createPersonSelector(shifts);
-    controlsContainer.appendChild(selector);
+    const select = createPersonSelector(shifts);
+    controlsContainer.appendChild(select);
 
     // Create download button
     const downloadButton = document.createElement('button');
     downloadButton.className = 'shift-button';
+    downloadButton.id = 'download-button';
     downloadButton.textContent = 'Download Shifts CSV';
     downloadButton.addEventListener('click', () => {
-        const selectedPerson = selector.value;
+        const selectedPerson = select.value;
         downloadShiftsCSV(shifts, selectedPerson);
     });
     controlsContainer.appendChild(downloadButton);
 
+    // Create hide button
+    const hideButton = document.createElement('button');
+    hideButton.className = 'shift-button';
+    hideButton.id = 'hide-button';
+    hideButton.textContent = `Hide ${select.value} shifts`;
+    hideButton.addEventListener('click', () => {
+        const calendar = document.getElementById('calendarToHide');
+        if (window.getComputedStyle(calendar).display === "none"){
+            calendar.style.display = "block";
+            hideButton.textContent = `Hide ${select.value} shifts`;
+
+        }
+        else{
+            calendar.style.display = "none";
+            hideButton.textContent = `Show ${select.value} shifts`;
+        }
+    });
+    controlsContainer.appendChild(hideButton);
+
+    const nextMonth = document.createElement('button');
+    nextMonth.className = 'shift-button';
+    nextMonth.id = 'nextMonth-button';
+    nextMonth.textContent = 'Go to next month';
+    controlsContainer.appendChild(nextMonth);
+    nextMonth.addEventListener('click', function(){
+        const { dienstMonth, dienstYear } = extractDate();
+        const urlMediUni = new URL(window.location.href);
+        urlMediUni.searchParams.set('m', dienstMonth + 2);
+        window.location.href = urlMediUni.toString();
+    })
+
     return {
         container: controlsContainer,
-        selector: selector,
+        selector: select,
         downloadButton: downloadButton
     };
 }
@@ -128,7 +174,7 @@ function downloadShiftsCSV(shifts, personName) {
         csvRows.push([
             shift.type,           // Subject (shift type)
             date,                 // Start Date
-            '7:00 AM',           // Start Time (always 7am)
+            '10:00 AM',           // Start Time (always 7am)
             'True'               // All Day Event (always true)
         ]);
     });

@@ -48,11 +48,11 @@ function createShiftCalendar(shifts, personName, month, year, containerId) {
         const container = document.getElementById(containerId);
         const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         const calendarDays = generateCalendarDays();
-        console.log(month)
+        console.log(calendarDays)
         const monthName = new Date(year, month).toLocaleString('default', { month: 'long' });
 
         const html = `
-            <div class="calendar">
+            <div class="calendar" id="calendarToHide">
                 <h2>${personName}'s Shifts - ${monthName} ${year}</h2>
                 <table>
                     <thead>
