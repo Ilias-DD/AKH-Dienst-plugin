@@ -129,6 +129,9 @@ function createControls(shifts) {
     });
     controlsContainer.appendChild(hideButton);
 
+    //TODO: Refactor the month logic
+    //RN it can't go to previous year and after 2 months the month is not available
+    //TOD: Refactor by extracting to method so that I don't duplicate button creation
     const nextMonth = document.createElement('button');
     nextMonth.className = 'shift-button';
     nextMonth.id = 'nextMonth-button';
@@ -138,6 +141,18 @@ function createControls(shifts) {
         const { dienstMonth, dienstYear } = extractDate();
         const urlMediUni = new URL(window.location.href);
         urlMediUni.searchParams.set('m', dienstMonth + 2);
+        window.location.href = urlMediUni.toString();
+    })
+
+    const previousMonth = document.createElement('button');
+    previousMonth.className = 'shift-button';
+    previousMonth.id = 'previousMonth-button';
+    previousMonth.textContent = 'Go to previous month';
+    controlsContainer.appendChild(previousMonth);
+    previousMonth.addEventListener('click', function(){
+        const { dienstMonth, dienstYear } = extractDate();
+        const urlMediUni = new URL(window.location.href);
+        urlMediUni.searchParams.set('m', dienstMonth);
         window.location.href = urlMediUni.toString();
     })
 
