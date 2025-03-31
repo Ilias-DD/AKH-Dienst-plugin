@@ -18,12 +18,10 @@ function createPersonSelector(shifts) {
         const hideButton = document.getElementById('hide-button');
         const calendar = document.getElementById('calendarToHide');
         if (window.getComputedStyle(calendar).display === "none"){
-            calendar.style.display = "block";
-            hideButton.textContent = `Hide ${select.value} shifts`;
+            hideButton.textContent = `Show ${select.value} shifts`;
         }
         else{
-            calendar.style.display = "none";
-            hideButton.textContent = `Show ${select.value} shifts`;
+            hideButton.textContent = `Hide ${select.value} shifts`;
         }
         localStorage.setItem('person',select.value);
     })
@@ -40,68 +38,63 @@ function createControls(shifts) {
     const select = createPersonSelector(shifts);
     controlsContainer.appendChild(select);
 
-    const previousMonth = document.createElement('button');
-    previousMonth.className = 'shift-button';
-    previousMonth.id = 'previousMonth-button';
-    previousMonth.textContent = String.fromCharCode(8249); //<
-    controlsContainer.appendChild(previousMonth);
-    previousMonth.addEventListener('click', function(){
+    const previousMonth = createButton('previousMonth-button', String.fromCharCode(8249), function(){
         const { dienstMonth, dienstYear } = extractDate();
         const urlMediUni = new URL(window.location.href);
         urlMediUni.searchParams.set('m', dienstMonth);
-        urlMediUni.searchParams.set("person", select.value);
-        let chachePerson = select.value
+
         window.location.href = urlMediUni.toString();
-    })
+    });
+    controlsContainer.appendChild(previousMonth);
 
     // Create download button
-    const downloadButton = document.createElement('button');
-    downloadButton.className = 'shift-button';
-    downloadButton.id = 'download-button';
-    downloadButton.textContent = 'Download Shifts CSV';
-    downloadButton.addEventListener('click', () => {
-        const selectedPerson = select.value;
+    const exportButton = createButton('export-button', `Export to CSV`, () => {
+        const selector = document.getElementById('person-selector');
+        const selectedPerson = selector.value;
         downloadShiftsCSV(shifts, selectedPerson);
     });
-    controlsContainer.appendChild(downloadButton);
+    controlsContainer.appendChild(exportButton);
 
     // Create hide button
-    const hideButton = document.createElement('button');
-    hideButton.className = 'shift-button';
-    hideButton.id = 'hide-button';
-    hideButton.textContent = `Hide ${select.value} shifts`;
-    hideButton.addEventListener('click', () => {
+    const hideButton = createButton('hide-button', `Hide ${select.value} shifts`, () => {
         const calendar = document.getElementById('calendarToHide');
+        const hideBtn = document.getElementById('hide-button');
         if (window.getComputedStyle(calendar).display === "none"){
             calendar.style.display = "block";
-            hideButton.textContent = `Hide ${select.value} shifts`;
+            hideBtn.textContent = `Hide ${select.value} shifts`;
 
         }
         else{
             calendar.style.display = "none";
-            hideButton.textContent = `Show ${select.value} shifts`;
+            hideBtn.textContent = `Show ${select.value} shifts`;
         }
     });
     controlsContainer.appendChild(hideButton);
 
     //TODO: Refactor the month logic
     //RN it can't go to previous year and after 2 months the month is not available
-    //TOD: Refactor by extracting to method so that I don't duplicate button creation
-    const nextMonth = document.createElement('button');
-    nextMonth.className = 'shift-button';
-    nextMonth.id = 'nextMonth-button';
-    nextMonth.textContent = String.fromCharCode(8250); //>
-    controlsContainer.appendChild(nextMonth);
-    nextMonth.addEventListener('click', function(){
+    const nextMonth = createButton('nextMonth-button', String.fromCharCode(8250), function(){
         const { dienstMonth, dienstYear } = extractDate();
         const urlMediUni = new URL(window.location.href);
         urlMediUni.searchParams.set('m', dienstMonth + 2);
         window.location.href = urlMediUni.toString();
-    })
+    }); 
+    controlsContainer.appendChild(nextMonth);
 
     return {
         container: controlsContainer,
         selector: select,
-        downloadButton: downloadButton
+        downloadButton: exportButton
     };
 }
+
+function createButton(buttonId, content, callback ) {
+
+    const button = document.createElement('button');
+    button.className = 'shift-button';
+    button.id = buttonId;
+    button.textContent = content; 
+    button.addEventListener("click", callback);
+    return button;
+}
+
