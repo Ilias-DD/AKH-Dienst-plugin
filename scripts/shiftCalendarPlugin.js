@@ -1,17 +1,3 @@
-// Create and inject styles
-function addStyles() {
-    var runtimBrowser = typeof browser !== "undefined"  ? browser : chrome;
-
-    if (!document.getElementById('shift-calendar-styles')) {
-        var link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.type = "text/css";
-        link.href = chrome.runtime.getURL("styles/calendar.css");
-        console.log(link.href)
-        document.head.appendChild(link);
-    }
-}
-
 // Extract shifts from the last table
 function extractShifts() {
     const shifts = [];
@@ -202,7 +188,6 @@ function init() {
     if (tables.length > 0) {
         const lastTable = tables[tables.length - 1];
         if (lastTable.querySelector('tr.title')) {
-            addStyles();
             initializeShiftCalendar();
         }
     }
