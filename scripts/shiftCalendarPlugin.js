@@ -189,7 +189,9 @@ function downloadShiftsCSV(shifts, personName) {
             day: '2-digit',
             year: 'numeric'
         });
-        
+
+        sendEventToGmail(shift.type, shift.date);
+
         csvRows.push([
             shift.type,           // Subject (shift type)
             date,                 // Start Date
@@ -264,6 +266,29 @@ function initializeShiftCalendar() {
     if (controls.selector.value) {
         createShiftCalendar(shifts, controls.selector.value, dienstMonth, dienstYear, 'calendar-container');
     }
+}
+
+function formatToGoogleCalendar(date) {
+    return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+}
+
+
+function sendEventToGmail(title, date)
+{
+    //Date handeling
+    const startDate = new Date(date.getTime());
+    const endDate = new Date(date.getTime());
+ 
+    startDate.setHours(8,0,0,0);
+    endDate.setDate(date.getDate() + 1);
+    endDate.setHours(8,0,0,0)
+
+    const startDateTime = formatToGoogleCalendar(startDate);
+    const endDateTime = formatToGoogleCalendar(endDate);
+
+    const googleCalendarUrl = 
+    `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDateTime}/${endDateTime}`;
+    window.open(googleCalendarUrl, "_blank");
 }
 
 function extractDate() {
