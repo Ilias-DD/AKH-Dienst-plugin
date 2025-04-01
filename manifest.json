@@ -13,7 +13,7 @@
     {
       "matches": ["https://edm.meduniwien.ac.at/dienstplan.php*"],
       "js": ["scripts/shiftCalendar.js", "scripts/controllers.js","scripts/shiftCalendarPlugin.js"],
-      "css": ["styles/calendar.css"]
+      "css": ["styles/purpleCalendarTheme.css"]
     }
   ]
 } 

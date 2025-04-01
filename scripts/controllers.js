@@ -40,10 +40,13 @@ function createPersonSelector(shifts) {
 function createControls(shifts) {
     const controlsContainer = document.createElement('div');
     controlsContainer.className = 'shift-controls';
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = "shift-buttons"
 
     // Create person selector
     const select = createPersonSelector(shifts);
     controlsContainer.appendChild(select);
+    controlsContainer.appendChild(buttonContainer)
 
     const previousMonth = createButton('previousMonth-button', String.fromCharCode(8249), function(){
         const { dienstMonth, dienstYear } = extractDate();
@@ -52,7 +55,7 @@ function createControls(shifts) {
 
         window.location.href = urlMediUni.toString();
     });
-    controlsContainer.appendChild(previousMonth);
+    buttonContainer.appendChild(previousMonth);
 
     // Create download button
     const exportButton = createButton('export-button', `Export to CSV`, () => {
@@ -60,7 +63,7 @@ function createControls(shifts) {
         const selectedPerson = selector.value;
         downloadShiftsCSV(shifts, selectedPerson);
     });
-    controlsContainer.appendChild(exportButton);
+    buttonContainer.appendChild(exportButton);
 
     // Create hide button
     const hideButton = createButton('hide-button', `Hide ${select.value} shifts`, () => {
@@ -76,7 +79,7 @@ function createControls(shifts) {
             hideBtn.textContent = `Show ${select.value} shifts`;
         }
     });
-    controlsContainer.appendChild(hideButton);
+    buttonContainer.appendChild(hideButton);
 
     //TODO: Refactor the month logic
     //RN it can't go to previous year and after 2 months the month is not available
@@ -86,7 +89,7 @@ function createControls(shifts) {
         urlMediUni.searchParams.set('m', dienstMonth + 2);
         window.location.href = urlMediUni.toString();
     }); 
-    controlsContainer.appendChild(nextMonth);
+    buttonContainer.appendChild(nextMonth);
 
     return {
         container: controlsContainer,

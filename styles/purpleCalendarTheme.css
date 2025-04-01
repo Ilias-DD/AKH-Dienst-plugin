@@ -1,0 +1,140 @@
+/* Calendar container */
+.calendar {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Calendar header */
+.calendar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: rgb(138, 56, 88);
+}
+
+/* Calendar table */
+.calendar table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+/* Table headers (weekdays) */
+.calendar th {
+    background: rgb(238, 174, 202);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Table cells (days) */
+.calendar td {
+    width: 14.28%;
+    height: 100px;
+    vertical-align: top;
+    background: rgba(238, 174, 202, 0.3);
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Floating effect on hover */
+.calendar td:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: rgba(238, 174, 202, 0.5);
+}
+
+/* Day number */
+.calendar .day-number {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 0.9em;
+    color: rgb(138, 56, 88);
+    font-weight: bold;
+}
+
+/* Shift information */
+.calendar .shift-info {
+    margin-top: 20px;
+    font-size: 0.85em;
+    color: #fff;
+    background: rgb(138, 56, 88);
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Shift Controls Container */
+.shift-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(238, 174, 202, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Shift Select Dropdown */
+.shift-select {
+    padding: 8px;
+    border: 2px solid rgb(138, 56, 88);
+    border-radius: 5px;
+    background: #fff;
+    font-size: 1em;
+    color: rgb(138, 56, 88);
+    cursor: pointer;
+}
+
+/* Shift Buttons Container */
+.shift-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Shift Buttons */
+.shift-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(138, 56, 88);
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.shift-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: rgb(160, 70, 100);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .calendar td {
+        height: 80px;
+        padding: 5px;
+    }
+    .calendar .day-number {
+        font-size: 0.8em;
+    }
+    .calendar .shift-info {
+        font-size: 0.75em;
+        padding: 3px;
+    }
+}
