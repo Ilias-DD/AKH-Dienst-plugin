@@ -15,21 +15,14 @@ function createPersonSelector(shifts) {
     select.value = localStorage.getItem('person') == null ? select.value : localStorage.getItem('person');
 
     select.addEventListener('change', function(e){
-        const hideButton = document.getElementById('hide-button');
         const calendarVisibility = window.getComputedStyle(document.getElementById('calendarToHide')).display;
         const selectedPerson = e.target.value;
         const { dienstMonth, dienstYear } = extractDate();
 
-        createShiftCalendar(shifts, selectedPerson,dienstMonth, dienstYear, 'calendar-container');
+        createShiftCalendar(shifts, selectedPerson, dienstMonth, dienstYear, 'calendar-container');
         const calendar = document.getElementById('calendarToHide');
+        calendar.style.display = calendarVisibility;
 
-        if (calendarVisibility === "none"){
-            calendar.style.display = "none";
-            hideButton.textContent = `Show ${selectedPerson} shifts`;
-        }
-        else{
-            hideButton.textContent = `Hide ${selectedPerson} shifts`;
-        }
         localStorage.setItem('person',select.value);
     })
 
@@ -66,17 +59,20 @@ function createControls(shifts) {
     buttonContainer.appendChild(exportButton);
 
     // Create hide button
-    const hideButton = createButton('hide-button', `Hide ${select.value} shifts`, () => {
+    const hideButton = createButton('hide-button', "Show ugly view", () => {
         const calendar = document.getElementById('calendarToHide');
+        const uglyView = document.getElementById('uglyTable')
         const hideBtn = document.getElementById('hide-button');
         if (window.getComputedStyle(calendar).display === "none"){
             calendar.style.display = "block";
-            hideBtn.textContent = `Hide ${select.value} shifts`;
+            uglyView.style.display = "none";
+            hideBtn.textContent = `Show ugly view`;
 
         }
         else{
             calendar.style.display = "none";
-            hideBtn.textContent = `Show ${select.value} shifts`;
+            uglyView.style.display = "block";
+            hideBtn.textContent = `Show nice calendar view`;
         }
     });
     buttonContainer.appendChild(hideButton);

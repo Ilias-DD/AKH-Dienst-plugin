@@ -10,6 +10,8 @@ function extractShifts() {
     if (!shiftTable) return shifts;
 
     // Get all rows from the last table
+    shiftTable.id = "uglyTable";
+    shiftTable.style.display = "none";
     const rows = shiftTable.querySelectorAll('tr');
     
     // Get headers from the title row (first row)
