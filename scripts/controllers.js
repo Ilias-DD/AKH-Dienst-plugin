@@ -50,16 +50,8 @@ function createControls(shifts) {
     });
     buttonContainer.appendChild(previousMonth);
 
-    // Create download button
-    const exportButton = createButton('export-button', `Export to CSV`, () => {
-        const selector = document.getElementById('person-selector');
-        const selectedPerson = selector.value;
-        downloadShiftsCSV(shifts, selectedPerson);
-    });
-    buttonContainer.appendChild(exportButton);
-
-    // Create hide button
-    const hideButton = createButton('hide-button', "Show ugly view", () => {
+    // Create switch view button
+    const swithcButton = createButton('hide-button', "Show ugly view", () => {
         const calendar = document.getElementById('calendarToHide');
         const uglyView = document.getElementById('uglyTable')
         const hideBtn = document.getElementById('hide-button');
@@ -75,7 +67,23 @@ function createControls(shifts) {
             hideBtn.textContent = `Show nice calendar view`;
         }
     });
-    buttonContainer.appendChild(hideButton);
+    buttonContainer.appendChild(swithcButton);
+
+    // Create export to gmail button
+    const exportToGmailButton = createButton('export-gmail-button', `Export to Gmail`, () => {
+        const selector = document.getElementById('person-selector');
+        const selectedPerson = selector.value;
+        exportShiftsToGmail(shifts, selectedPerson);
+    });
+    buttonContainer.appendChild(exportToGmailButton);
+
+    // Create download button
+    const exportButton = createButton('export-button', `Export to CSV`, () => {
+        const selector = document.getElementById('person-selector');
+        const selectedPerson = selector.value;
+        downloadShiftsCSV(shifts, selectedPerson);
+    });
+    buttonContainer.appendChild(exportButton);
 
     //TODO: Refactor the month logic
     //RN it can't go to previous year and after 2 months the month is not available

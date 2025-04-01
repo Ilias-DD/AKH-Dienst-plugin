@@ -70,8 +70,6 @@ function downloadShiftsCSV(shifts, personName) {
             year: 'numeric'
         });
 
-        sendEventToGmail(shift.type, shift.date);
-
         csvRows.push([
             shift.type,           // Subject (shift type)
             date,                 // Start Date
@@ -186,6 +184,17 @@ function init() {
             initializeShiftCalendar();
         }
     }
+}
+
+function exportShiftsToGmail(shifts, personName) {
+
+    const personShifts = shifts.filter(shift => shift.personName === personName);
+    personShifts.sort((a, b) => a.date - b.date);
+    
+    // Add data rows
+    personShifts.forEach(shift => {
+        sendEventToGmail(shift.type, shift.date);
+    });
 }
 
 if (document.readyState === 'loading') {
