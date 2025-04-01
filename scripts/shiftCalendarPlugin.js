@@ -133,13 +133,6 @@ function initializeShiftCalendar() {
     calendarContainer.id = 'calendar-container';
     container.appendChild(calendarContainer);
 
-    // Update calendar when person is selected
-    controls.selector.addEventListener('change', (e) => {
-        const selectedPerson = e.target.value;
-        console.log(shifts)
-        createShiftCalendar(shifts, selectedPerson,dienstMonth, dienstYear, 'calendar-container');
-    });
-
     // Initial calendar creation
     if (controls.selector.value) {
         createShiftCalendar(shifts, controls.selector.value, dienstMonth, dienstYear, 'calendar-container');

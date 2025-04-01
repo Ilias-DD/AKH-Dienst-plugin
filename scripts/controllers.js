@@ -14,14 +14,21 @@ function createPersonSelector(shifts) {
 
     select.value = localStorage.getItem('person') == null ? select.value : localStorage.getItem('person');
 
-    select.addEventListener('change', function(){
+    select.addEventListener('change', function(e){
         const hideButton = document.getElementById('hide-button');
+        const calendarVisibility = window.getComputedStyle(document.getElementById('calendarToHide')).display;
+        const selectedPerson = e.target.value;
+        const { dienstMonth, dienstYear } = extractDate();
+
+        createShiftCalendar(shifts, selectedPerson,dienstMonth, dienstYear, 'calendar-container');
         const calendar = document.getElementById('calendarToHide');
-        if (window.getComputedStyle(calendar).display === "none"){
-            hideButton.textContent = `Show ${select.value} shifts`;
+
+        if (calendarVisibility === "none"){
+            calendar.style.display = "none";
+            hideButton.textContent = `Show ${selectedPerson} shifts`;
         }
         else{
-            hideButton.textContent = `Hide ${select.value} shifts`;
+            hideButton.textContent = `Hide ${selectedPerson} shifts`;
         }
         localStorage.setItem('person',select.value);
     })
