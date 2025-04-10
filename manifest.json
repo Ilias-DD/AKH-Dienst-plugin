@@ -14,6 +14,20 @@
       "matches": ["https://edm.meduniwien.ac.at/dienstplan.php*"],
       "js": ["scripts/shiftCalendar.js", "scripts/controllers.js","scripts/shiftCalendarPlugin.js"],
       "css": ["styles/purpleCalendarTheme.css"]
+    },
+    {
+      "matches": ["https://edm.meduniwien.ac.at/*"],
+      "css": ["styles/globalStyle.css"],
+      "run_at": "document_end"
+    },
+    {
+      "matches":["https://edm.meduniwien.ac.at/absenzenplan_frame.php*"],
+      "js": ["scripts/shiftCalendar.js", "scripts/controllers.js","scripts/shiftCalendarPlugin.js"],
+      "css": ["styles/purpleCalendarTheme.css"]
+    },
+    {
+      "matches":["https://edm.meduniwien.ac.at/login.php"],
+      "css": ["styles/loginView.css"]
     }
   ]
 } 

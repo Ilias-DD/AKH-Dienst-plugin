@@ -1,0 +1,372 @@
+BODY {
+    FONT-SIZE: 10pt;
+    BACKGROUND: #e5d4f7 !important;
+    COLOR: black;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none;
+}
+H1 {
+    FONT-SIZE: 18pt;
+    FONT-WEIGHT: normal;
+    COLOR: #4b0082;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none;
+}
+H2 {
+    FONT-SIZE: 14pt;
+    FONT-WEIGHT: normal;
+    COLOR: #4b0082;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none;
+}
+H3, H4, H5 {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 120%;
+    COLOR: #800080;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none;
+}
+A:link, A:visited {
+    COLOR: #9370db;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+A:hover {
+    COLOR: #ba55d3;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.noline {
+    TEXT-DECORATION: none;
+}
+
+OL {
+    LINE-HEIGHT: 150%;
+}
+
+.footer, TD {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #4b0082;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    padding: 2px;
+}
+TABLE {
+    border-collapse: collapse;
+}
+.table_red { 
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    BACKGROUND: #8b008b;
+    COLOR: white;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    padding: 2px;
+}
+
+.backgrd {
+    BACKGROUND: white;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.absenz {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #4b0082;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.title {
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold;
+    COLOR: #4b0082;
+    BACKGROUND: #e5d4f7;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.inhalt_rk, .select_rk {
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    COLOR: #4b0082;
+    BACKGROUND: #e5d4f7;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+
+.title_red {
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold;
+    COLOR: #4b0082;
+    BACKGROUND: #f2d6eb;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+
+.inhalt_t, .inhalt, .inhalt2, .contentcol {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #4b0082;
+    BACKGROUND: #f5e6ff;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.feiertag_t, .feiertag {
+    BACKGROUND: #f2d6eb;
+}
+
+.inhalt_t_s, .inhalt_s {
+    BACKGROUND: #c8b4d6;
+}
+
+.feiertag_t_s, .feiertag_s {
+    BACKGROUND: #d6b4c8;
+}
+
+.inhalt_p_ok {
+    BACKGROUND: #b4d6c8;
+}
+
+.inhalt_p_nok {
+    BACKGROUND: #d6b4c8;
+}
+
+.inhalt_bgred {
+    BACKGROUND: #c080c0;
+}
+
+.headline {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #4b0082;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+
+.subline {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 130%;
+    COLOR: #800080;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+
+.searchbar {
+    BACKGROUND: #9370db;
+}
+
+.navicol {
+    BACKGROUND: #d8b4f2;
+}
+
+.promocol {
+    BACKGROUND: #e6d5f5;
+}
+
+.contentcol {
+    BACKGROUND: #ffffff;
+}
+
+.nounderline {
+    TEXT-DECORATION: none;
+}
+
+HR {
+    COLOR: #9370db;
+}
+
+.formface, a.button {
+    FONT-SIZE: 100%;
+    BACKGROUND: #c8b4d6;
+    COLOR: white;
+    PADDING: 1px 4px;
+    BORDER: 1px solid #9370db;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.selectbutton {
+    FONT-SIZE: 100%;
+    BACKGROUND: #800080;
+    COLOR: white;
+    PADDING: 1px 4px;
+    BORDER: 1px solid #9370db;
+}
+
+.deselectbutton {
+    FONT-SIZE: 100%;
+    BACKGROUND: #cccccc;
+    COLOR: #800080;
+    PADDING: 1px 4px;
+    BORDER: 1px solid #9370db;
+}
+
+/* Date Picker Styles */
+.dpDiv {}
+
+.dpTable {
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 12px;
+    TEXT-ALIGN: center;
+    COLOR: #4b0082;
+    BACKGROUND-COLOR: #ffffff;
+    BORDER: 1px solid #e5d4f7;
+}
+
+.dpTR, .dpTitleTR, .dpDayTR, .dpTodayButtonTR {}
+
+.dpTD {
+    BORDER: 1px solid #e5d4f7;
+}
+
+.dpDayHighlightTD, .dpTDHover, .dpDayTD {
+    BACKGROUND-COLOR: #d8b4f2;
+    BORDER: 1px solid #e5d4f7;
+    COLOR: white;
+    cursor: pointer;
+}
+
+.dpTitleTD, .dpButtonTD, .dpTodayButtonTD {}
+
+.dpTitleText {
+    FONT-SIZE: 12px;
+    COLOR: #4b0082;
+    FONT-WEIGHT: bold;
+}
+
+.dpDayHighlight {
+    COLOR: white;
+    FONT-WEIGHT: bold;
+}
+
+.dpButton {
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 10px;
+    COLOR: #4b0082;
+    BACKGROUND: #d8b4f2;
+    FONT-WEIGHT: bold;
+    PADDING: 2px;
+}
+
+form[name="filter"] {
+    background: #f5e6ff;
+    padding: 20px;
+    border: 1px solid #d8b4f2;
+    width: fit-content;
+    margin: 20px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4b0082;
+    font-size: 10pt;
+}
+
+form[name="filter"] table {
+    border-collapse: collapse;
+    margin: 10px auto;
+}
+
+form[name="filter"] td {
+    padding: 5px;
+    vertical-align: middle;
+    font-size: 8pt;
+    color: #4b0082;
+}
+
+form[name="filter"] select {
+    background: #e5d4f7;
+    color: #4b0082;
+    border: 1px solid #9370db;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    padding: 4px;
+    width: 100%;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+form[name="filter"] select#abteilung {
+    width: 250px;
+}
+
+form[name="filter"] select#jahr,
+form[name="filter"] select#monat {
+    width: 90px;
+}
+
+form[name="filter"] select#auswahl {
+    width: 200px;
+}
+
+form[name="filter"] input[type="submit"] {
+    background: #c8b4d6;
+    color: white;
+    font-size: 10pt;
+    border: 1px solid #9370db;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 26px;
+    width: 80px;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+form[name="filter"] input[type="submit"]:hover {
+    background: #9370db;
+}
+
+/* Forms */
+form[name="tagesjournaldienstplan"],
+form[name="dienstanweisung"],
+form[name="m_und_e"],
+form[name="p"],
+form[name="ue"],
+form[name="rue"] {
+    background: #ffffff;
+    padding: 12px; /* slightly more padding */
+    border: 1px solid #e0e0e0;
+    width: fit-content;
+    margin: 12px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 12px;
+}
+
+/* Table */
+form[name="tagesjournaldienstplan"] table,
+form[name="dienstanweisung"] table,
+form[name="m_und_e"] table,
+form[name="p"] table,
+form[name="ue"] table,
+form[name="rue"] table {
+    border-collapse: collapse;
+}
+
+/* Table Cells */
+form[name="tagesjournaldienstplan"] td,
+form[name="dienstanweisung"] td,
+form[name="m_und_e"] td,
+form[name="p"] td,
+form[name="ue"] td,
+form[name="rue"] td {
+    padding: 8px; /* a little more breathing room */
+}
+
+/* Buttons */
+form[name="tagesjournaldienstplan"] input[type="button"],
+form[name="dienstanweisung"] input[type="button"],
+form[name="m_und_e"] input[type="button"],
+form[name="p"] input[type="button"],
+form[name="ue"] input[type="button"],
+form[name="rue"] input[type="button"] {
+    background: #b39ddb;
+    color: #ffffff;
+    font-size: 11pt; /* slightly bigger font */
+    border: none;
+    height: 32px; /* bigger button */
+    width: 260px; /* wider button */
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+/* Button Hover */
+form[name="tagesjournaldienstplan"] input[type="button"]:hover,
+form[name="dienstanweisung"] input[type="button"]:hover,
+form[name="m_und_e"] input[type="button"]:hover,
+form[name="p"] input[type="button"]:hover,
+form[name="ue"] input[type="button"]:hover,
+form[name="rue"] input[type="button"]:hover {
+    background: #9575cd;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}

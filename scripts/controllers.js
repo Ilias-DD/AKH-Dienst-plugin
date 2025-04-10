@@ -102,6 +102,35 @@ function createControls(shifts) {
     };
 }
 
+function exportShiftsToGmail(shifts, personName) {
+
+    const personShifts = shifts.filter(shift => shift.personName === personName);
+    personShifts.sort((a, b) => a.date - b.date);
+    
+    personShifts.forEach(shift => {
+        sendEventToGmail(shift.type, shift.date);
+    });
+}
+
+function sendEventToGmail(title, date)
+{
+    //Date handeling
+    const startDate = new Date(date.getTime());
+    const endDate = new Date(date.getTime());
+ 
+    startDate.setHours(8,0,0,0);
+    endDate.setDate(date.getDate() + 1);
+    endDate.setHours(8,0,0,0)
+
+    const startDateTime = formatToGoogleCalendar(startDate);
+    const endDateTime = formatToGoogleCalendar(endDate);
+
+    const googleCalendarUrl = 
+    `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDateTime}/${endDateTime}`;
+
+    window.open(googleCalendarUrl, "_blank");
+}
+
 function createButton(buttonId, content, callback ) {
 
     const button = document.createElement('button');
@@ -111,4 +140,3 @@ function createButton(buttonId, content, callback ) {
     button.addEventListener("click", callback);
     return button;
 }
-

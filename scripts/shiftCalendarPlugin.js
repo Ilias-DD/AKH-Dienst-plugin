@@ -143,25 +143,6 @@ function formatToGoogleCalendar(date) {
     return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 }
 
-
-function sendEventToGmail(title, date)
-{
-    //Date handeling
-    const startDate = new Date(date.getTime());
-    const endDate = new Date(date.getTime());
- 
-    startDate.setHours(8,0,0,0);
-    endDate.setDate(date.getDate() + 1);
-    endDate.setHours(8,0,0,0)
-
-    const startDateTime = formatToGoogleCalendar(startDate);
-    const endDateTime = formatToGoogleCalendar(endDate);
-
-    const googleCalendarUrl = 
-    `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDateTime}/${endDateTime}`;
-    window.open(googleCalendarUrl, "_blank");
-}
-
 function extractDate() {
      //Exctract month and year
     //https://exmpleUrl?j=2025&m=4&abt=5002
@@ -186,17 +167,7 @@ function init() {
     }
 }
 
-function exportShiftsToGmail(shifts, personName) {
-
-    const personShifts = shifts.filter(shift => shift.personName === personName);
-    personShifts.sort((a, b) => a.date - b.date);
-    
-    // Add data rows
-    personShifts.forEach(shift => {
-        sendEventToGmail(shift.type, shift.date);
-    });
-}
-
+console.log("I am running on this page " + window.location.href);
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
 } else {

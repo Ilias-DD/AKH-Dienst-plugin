@@ -1,0 +1,72 @@
+/* Center the form container */
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f5e1e8, #ffffff);
+    font-family: Arial, sans-serif;
+}
+
+/* Style the table */
+form table {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+/* Style table cells */
+form td {
+    padding: 12px;
+    font-size: 1rem;
+    color: rgb(138, 56, 88);
+}
+
+/* Inputs: text and password */
+form input[type="text"],
+form input[type="password"] {
+    width: 250px;
+    padding: 10px;
+    border: 2px solid rgba(138, 56, 88, 0.4);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: rgba(238, 174, 202, 0.1);
+    color: #333;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: rgb(138, 56, 88);
+    box-shadow: 0 0 5px rgba(138, 56, 88, 0.5);
+    outline: none;
+    background-color: #fff;
+}
+
+/* Submit Button */
+form input[type="submit"] {
+    background: rgb(138, 56, 88);
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+form input[type="submit"]:hover {
+    background: rgb(160, 70, 100);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide oldschool borders */
+form table {
+    border-collapse: separate;
+    border-spacing: 10px;
+}
