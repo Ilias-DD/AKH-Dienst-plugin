@@ -42,9 +42,13 @@ function createControls(shifts) {
     controlsContainer.appendChild(buttonContainer)
 
     const previousMonth = createButton('previousMonth-button', String.fromCharCode(8249), function(){
-        const { dienstMonth, dienstYear } = extractDate();
+        let { dienstMonth, dienstYear } = extractDate();
+        dienstYear = dienstMonth == 0 ? dienstYear - 1 : dienstYear;
+        dienstMonth = dienstMonth == 0 ? 11 : dienstMonth;
+
         const urlMediUni = new URL(window.location.href);
         urlMediUni.searchParams.set('m', dienstMonth);
+        urlMediUni.searchParams.set('j', dienstYear);
 
         window.location.href = urlMediUni.toString();
     });
@@ -86,11 +90,18 @@ function createControls(shifts) {
     buttonContainer.appendChild(exportButton);
 
     //TODO: Refactor the month logic
-    //RN it can't go to previous year and after 2 months the month is not available
+    //There is still an issue when going to a month which doesn't 
+    // contain the name of the one we stored locally
     const nextMonth = createButton('nextMonth-button', String.fromCharCode(8250), function(){
-        const { dienstMonth, dienstYear } = extractDate();
+        let { dienstMonth, dienstYear } = extractDate();
+
+        dienstYear = dienstMonth + 2 > 12 ? dienstYear + 1 : dienstYear;
+        dienstMonth = dienstMonth + 2 > 12 ? 1 : dienstMonth + 2;
+
         const urlMediUni = new URL(window.location.href);
-        urlMediUni.searchParams.set('m', dienstMonth + 2);
+
+        urlMediUni.searchParams.set('m', dienstMonth);
+        urlMediUni.searchParams.set('j', dienstYear);
         window.location.href = urlMediUni.toString();
     }); 
     buttonContainer.appendChild(nextMonth);

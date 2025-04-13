@@ -1,0 +1,336 @@
+BODY {
+    FONT-SIZE: 10pt;
+    BACKGROUND: #e0f2f7 !important; /* soft light blue */
+    COLOR: #1a1a1a;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none;
+}
+H1 {
+    FONT-SIZE: 18pt;
+    FONT-WEIGHT: normal;
+    COLOR: #0d47a1; /* strong deep blue */
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+H2 {
+    FONT-SIZE: 14pt;
+    FONT-WEIGHT: normal;
+    COLOR: #1565c0;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+H3, H4, H5 {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 120%;
+    COLOR: #1976d2;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+A:link, A:visited {
+    COLOR: #1565c0;
+}
+A:hover {
+    COLOR: #0d47a1;
+}
+
+.noline {
+    TEXT-DECORATION: none;
+}
+
+OL {
+    LINE-HEIGHT: 150%;
+}
+
+.footer, TD {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #0d47a1;
+    padding: 2px;
+}
+
+TABLE {
+    border-collapse: collapse;
+}
+
+.table_red { 
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    BACKGROUND: #1565c0;
+    COLOR: white;
+}
+
+.backgrd {
+    BACKGROUND: white;
+}
+.absenz {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #0d47a1;
+}
+.title {
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold;
+    COLOR: #0d47a1;
+    BACKGROUND: #e3f2fd;
+}
+.inhalt_rk, .select_rk {
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    COLOR: #1565c0;
+    BACKGROUND: #e3f2fd;
+}
+
+.title_red {
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold;
+    COLOR: #0d47a1;
+    BACKGROUND: #bbdefb;
+}
+
+.inhalt_t, .inhalt, .inhalt2, .contentcol {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #1565c0;
+    BACKGROUND: #e0f7fa;
+}
+
+.feiertag_t, .feiertag {
+    BACKGROUND: #bbdefb;
+}
+
+.inhalt_t_s, .inhalt_s {
+    BACKGROUND: #90caf9;
+}
+
+.feiertag_t_s, .feiertag_s {
+    BACKGROUND: #64b5f6;
+}
+
+.inhalt_p_ok {
+    BACKGROUND: #b2dfdb; /* minty calm */
+}
+
+.inhalt_p_nok {
+    BACKGROUND: #90caf9;
+}
+
+.inhalt_bgred {
+    BACKGROUND: #64b5f6;
+}
+
+.headline {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #0d47a1;
+}
+.subline {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 130%;
+    COLOR: #1565c0;
+}
+
+.searchbar {
+    BACKGROUND: #1976d2;
+}
+
+.navicol {
+    BACKGROUND: #bbdefb;
+}
+
+.promocol {
+    BACKGROUND: #e3f2fd;
+}
+
+.contentcol {
+    BACKGROUND: #ffffff;
+}
+
+.nounderline {
+    TEXT-DECORATION: none;
+}
+
+HR {
+    COLOR: #1976d2;
+}
+
+.formface, a.button {
+    FONT-SIZE: 100%;
+    BACKGROUND: #90caf9;
+    COLOR: white;
+    PADDING: 1px 4px;
+    BORDER: 1px solid #1976d2;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.selectbutton {
+    FONT-SIZE: 100%;
+    BACKGROUND: #1565c0;
+    COLOR: white;
+    PADDING: 1px 4px;
+    BORDER: 1px solid #1976d2;
+}
+
+.deselectbutton {
+    FONT-SIZE: 100%;
+    BACKGROUND: #cccccc;
+    COLOR: #1565c0;
+    PADDING: 1px 4px;
+    BORDER: 1px solid #1976d2;
+}
+
+/* Date Picker Styles */
+.dpDiv {}
+
+.dpTable {
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 12px;
+    TEXT-ALIGN: center;
+    COLOR: #0d47a1;
+    BACKGROUND-COLOR: #ffffff;
+    BORDER: 1px solid #bbdefb;
+}
+
+.dpTR, .dpTitleTR, .dpDayTR, .dpTodayButtonTR {}
+
+.dpTD {
+    BORDER: 1px solid #bbdefb;
+}
+
+.dpDayHighlightTD, .dpTDHover, .dpDayTD {
+    BACKGROUND-COLOR: #bbdefb;
+    BORDER: 1px solid #bbdefb;
+    COLOR: #0d47a1;
+    cursor: pointer;
+}
+
+.dpTitleTD, .dpButtonTD, .dpTodayButtonTD {}
+
+.dpTitleText {
+    FONT-SIZE: 12px;
+    COLOR: #0d47a1;
+    FONT-WEIGHT: bold;
+}
+
+.dpDayHighlight {
+    COLOR: #0d47a1;
+    FONT-WEIGHT: bold;
+}
+
+.dpButton {
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 10px;
+    COLOR: #ffffff;
+    BACKGROUND: #1976d2;
+    FONT-WEIGHT: bold;
+    PADDING: 2px;
+}
+
+form[name="filter"] {
+    background: #e3f2fd;
+    padding: 20px;
+    border: 1px solid #bbdefb;
+    width: fit-content;
+    margin: 20px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0d47a1;
+    font-size: 10pt;
+}
+
+form[name="filter"] td {
+    padding: 5px;
+    vertical-align: middle;
+    font-size: 8pt;
+    color: #0d47a1;
+}
+
+form[name="filter"] select {
+    background: #e0f7fa;
+    color: #0d47a1;
+    border: 1px solid #1976d2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    padding: 4px;
+    width: 100%;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+form[name="filter"] input[type="submit"] {
+    background: #90caf9;
+    color: white;
+    font-size: 10pt;
+    border: 1px solid #1976d2;
+    padding: 4px 8px;
+    cursor: pointer;
+    height: 26px;
+    width: 80px;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+form[name="filter"] input[type="submit"]:hover {
+    background: #1976d2;
+}
+
+/* Forms */
+form[name="tagesjournaldienstplan"],
+form[name="dienstanweisung"],
+form[name="m_und_e"],
+form[name="p"],
+form[name="ue"],
+form[name="rue"] {
+    background: #ffffff;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    width: fit-content;
+    margin: 12px auto;
+    border-radius: 12px;
+}
+
+/* Table */
+form[name="tagesjournaldienstplan"] table,
+form[name="dienstanweisung"] table,
+form[name="m_und_e"] table,
+form[name="p"] table,
+form[name="ue"] table,
+form[name="rue"] table {
+    border-collapse: collapse;
+}
+
+/* Table Cells */
+form[name="tagesjournaldienstplan"] td,
+form[name="dienstanweisung"] td,
+form[name="m_und_e"] td,
+form[name="p"] td,
+form[name="ue"] td,
+form[name="rue"] td {
+    padding: 8px;
+}
+
+/* Buttons */
+form[name="tagesjournaldienstplan"] input[type="button"],
+form[name="dienstanweisung"] input[type="button"],
+form[name="m_und_e"] input[type="button"],
+form[name="p"] input[type="button"],
+form[name="ue"] input[type="button"],
+form[name="rue"] input[type="button"] {
+    background: #1976d2;
+    color: #ffffff;
+    font-size: 11pt;
+    border: none;
+    height: 32px;
+    width: 260px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+/* Button Hover */
+form[name="tagesjournaldienstplan"] input[type="button"]:hover,
+form[name="dienstanweisung"] input[type="button"]:hover,
+form[name="m_und_e"] input[type="button"]:hover,
+form[name="p"] input[type="button"]:hover,
+form[name="ue"] input[type="button"]:hover,
+form[name="rue"] input[type="button"]:hover {
+    background: #0d47a1;
+}
