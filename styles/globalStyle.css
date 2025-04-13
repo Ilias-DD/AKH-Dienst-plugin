@@ -190,9 +190,6 @@ HR {
     BORDER: 1px solid #9370db;
 }
 
-/* Date Picker Styles */
-.dpDiv {}
-
 .dpTable {
     FONT-FAMILY: Arial, Helvetica, sans-serif;
     FONT-SIZE: 12px;
@@ -201,8 +198,6 @@ HR {
     BACKGROUND-COLOR: #ffffff;
     BORDER: 1px solid #e5d4f7;
 }
-
-.dpTR, .dpTitleTR, .dpDayTR, .dpTodayButtonTR {}
 
 .dpTD {
     BORDER: 1px solid #e5d4f7;
@@ -214,8 +209,6 @@ HR {
     COLOR: white;
     cursor: pointer;
 }
-
-.dpTitleTD, .dpButtonTD, .dpTodayButtonTD {}
 
 .dpTitleText {
     FONT-SIZE: 12px;
