@@ -41,17 +41,7 @@ function createControls(shifts) {
     controlsContainer.appendChild(select);
     controlsContainer.appendChild(buttonContainer)
 
-    const previousMonth = createButton('previousMonth-button', String.fromCharCode(8249), function(){
-        let { dienstMonth, dienstYear } = extractDate();
-        dienstYear = dienstMonth == 0 ? dienstYear - 1 : dienstYear;
-        dienstMonth = dienstMonth == 0 ? 11 : dienstMonth;
-
-        const urlMediUni = new URL(window.location.href);
-        urlMediUni.searchParams.set('m', dienstMonth);
-        urlMediUni.searchParams.set('j', dienstYear);
-
-        window.location.href = urlMediUni.toString();
-    });
+    const previousMonth = createPreviousMonthButton();
     buttonContainer.appendChild(previousMonth);
 
     // Create switch view button
@@ -89,21 +79,7 @@ function createControls(shifts) {
     });
     buttonContainer.appendChild(exportButton);
 
-    //TODO: Refactor the month logic
-    //There is still an issue when going to a month which doesn't 
-    // contain the name of the one we stored locally
-    const nextMonth = createButton('nextMonth-button', String.fromCharCode(8250), function(){
-        let { dienstMonth, dienstYear } = extractDate();
-
-        dienstYear = dienstMonth + 2 > 12 ? dienstYear + 1 : dienstYear;
-        dienstMonth = dienstMonth + 2 > 12 ? 1 : dienstMonth + 2;
-
-        const urlMediUni = new URL(window.location.href);
-
-        urlMediUni.searchParams.set('m', dienstMonth);
-        urlMediUni.searchParams.set('j', dienstYear);
-        window.location.href = urlMediUni.toString();
-    }); 
+    const nextMonth = createNextMonthButton();
     buttonContainer.appendChild(nextMonth);
 
     return {
@@ -150,4 +126,45 @@ function createButton(buttonId, content, callback ) {
     button.textContent = content; 
     button.addEventListener("click", callback);
     return button;
+}
+
+//TODO: Refactor the month logic
+    //There is still an issue when going to a month which doesn't 
+    // contain the name of the one we stored locally
+function createPreviousMonthButton(){
+   return createButton('previousMonth-button', String.fromCharCode(8249), function(){
+        let { dienstMonth, dienstYear } = extractDate();
+        dienstYear = dienstMonth == 0 ? dienstYear - 1 : dienstYear;
+        dienstMonth = dienstMonth == 0 ? 11 : dienstMonth;
+
+        const urlMediUni = new URL(window.location.href);
+        urlMediUni.searchParams.set('m', dienstMonth);
+        urlMediUni.searchParams.set('j', dienstYear);
+
+        window.location.href = urlMediUni.toString();
+    });
+}
+
+function createNextMonthButton(){
+    return createButton('nextMonth-button', String.fromCharCode(8250), function(){
+        let { dienstMonth, dienstYear } = extractDate();
+
+        dienstYear = dienstMonth + 2 > 12 ? dienstYear + 1 : dienstYear;
+        dienstMonth = dienstMonth + 2 > 12 ? 1 : dienstMonth + 2;
+
+        const urlMediUni = new URL(window.location.href);
+
+        urlMediUni.searchParams.set('m', dienstMonth);
+        urlMediUni.searchParams.set('j', dienstYear);
+        window.location.href = urlMediUni.toString();
+    });
+}
+
+function createControlsForUnavailableCallendar()
+{
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = "shift-buttons"
+    buttonContainer.appendChild(createPreviousMonthButton());
+    buttonContainer.appendChild(createNextMonthButton());
+    return buttonContainer;
 }

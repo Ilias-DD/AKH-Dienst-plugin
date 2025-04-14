@@ -158,11 +158,17 @@ function extractDate() {
 // Add a check to ensure the page is fully loaded
 function init() {
     // Check if the last table exists and has the expected structure
+    console.log("I am here")
+
     const tables = document.getElementsByTagName('table');
     if (tables.length > 0) {
         const lastTable = tables[tables.length - 1];
         if (lastTable.querySelector('tr.title')) {
             initializeShiftCalendar();
+        }
+        else{
+            //Make a dedicated view for not available calendar
+            document.body.appendChild(createControlsForUnavailableCallendar());
         }
     }
 }
