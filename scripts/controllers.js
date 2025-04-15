@@ -11,8 +11,8 @@ function createPersonSelector(shifts) {
         option.textContent = name;
         select.appendChild(option);
     });
-
-    select.value = localStorage.getItem('person') == null ? select.value : localStorage.getItem('person');
+    
+    select.value = getStoredName(select.value, uniqueNames);
 
     select.addEventListener('change', function(e){
         const calendarVisibility = window.getComputedStyle(document.getElementById('calendarToHide')).display;
@@ -29,6 +29,74 @@ function createPersonSelector(shifts) {
     return select;
 }
 
+
+function showToast(message) {
+    // Create the toast element if it doesn't exist
+    let toast = document.getElementById('toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'toast';
+      document.body.appendChild(toast);
+  
+      // Inject the shake animation style once
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes shake {
+          0% { transform: translate(-50%, -50%) translateX(0); }
+          25% { transform: translate(-50%, -50%) translateX(-5px); }
+          50% { transform: translate(-50%, -50%) translateX(5px); }
+          75% { transform: translate(-50%, -50%) translateX(-5px); }
+          100% { transform: translate(-50%, -50%) translateX(0); }
+        }
+      `;
+      document.head.appendChild(style);
+  
+      // Style the toast via JS
+      Object.assign(toast.style, {
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#333',
+        color: '#fff',
+        padding: '16px 24px',
+        borderRadius: '8px',
+        boxShadow: '0 2px 12px rgba(0,0,0,0.3)',
+        zIndex: 1000,
+        opacity: 0,
+        transition: 'opacity 0.5s ease',
+        display: 'block',
+        animation: 'shake 0.5s ease',
+      });
+    }
+  
+    // Set the message and show the toast
+    toast.innerHTML = message;
+    toast.style.opacity = '1';
+    toast.style.animation = 'shake 0.5s ease';
+  
+    // Reset animation so it can replay if triggered again quickly
+    toast.offsetHeight; // force reflow
+    toast.style.animation = 'shake 0.5s ease';
+  
+    // Hide after 5 seconds
+    setTimeout(() => {
+      toast.style.opacity = '0';
+    }, 10000);
+  }
+  
+
+function getStoredName(defaultName, listOfNames){
+    const storedName = localStorage.getItem('person');
+    
+    if(storedName == null) return defaultName;
+    if(listOfNames.includes(storedName)) return storedName;
+
+    showToast(`⚠️ <span style="font-weight: bold; color: #ffcc00">${storedName}</span>, 
+        you didn't work for AKH this month.<br>You're viewing
+         <span style="font-weight: bold; color: #00bfff">${defaultName}</span>'s calendar instead.`);
+    return defaultName;
+}
 // Create controls (selector and download button)
 function createControls(shifts) {
     const controlsContainer = document.createElement('div');
