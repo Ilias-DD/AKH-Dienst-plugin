@@ -171,6 +171,7 @@ function init() {
             document.body.appendChild(createControlsForUnavailableCallendar());
         }
     }
+    showPage();
 }
 
 console.log("I am running on this page " + window.location.href);
@@ -179,3 +180,8 @@ if (document.readyState === 'loading') {
 } else {
     init();
 } 
+
+function showPage() {
+    document.documentElement.style.opacity = '1';
+    document.body.style.opacity = '1';
+}
