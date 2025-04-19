@@ -6,15 +6,16 @@ body {
       transform 0.8s ease;
   }
 
-  .meduni-svg-loader {
+  .loading-container{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10000;
-    width: 120px;
-    height: 120px;
+    width: 25%;
+    height: 25%;
     display: flex;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     border-radius: 100%;
@@ -22,6 +23,12 @@ body {
     transition:
       opacity 0.5s ease,
       transform 0.5s ease;
+  }
+
+  
+  .loadingMessage {
+    font-size: 25px;
+    color: #001f4d;
   }
 
   .meduni-svg-loader svg {

@@ -173,7 +173,7 @@ function init() {
 
 console.log("I am running on this page " + window.location.href);
 
-loadPage();
+loadPage(750);
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
 } else {

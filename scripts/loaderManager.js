@@ -1,5 +1,7 @@
 function initLoader(){
     // Create and inject the loader
+    const container = document.createElement('div');
+    container.className = 'loading-container';
     const loader = document.createElement('div');
     loader.className = 'meduni-svg-loader';
     loader.innerHTML = `
@@ -13,11 +15,21 @@ function initLoader(){
     </g>
     </svg>
     `;
-    document.documentElement.appendChild(loader);
+
+    storedName = localStorage.getItem('person');
+    let message = "Loading calendar...";
+    if (storedName != null) message = `Loading ${storedName}'s callendar...`
+    const loadingMessage = document.createElement('p');
+    loadingMessage.innerHTML = message;
+    loadingMessage.className = 'loadingMessage';
+
+    container.appendChild(loader);
+    container.appendChild(loadingMessage);
+    document.documentElement.appendChild(container);
 }
 
 function removeLoader(){
-    document.querySelector('.meduni-svg-loader').style.opacity = '0';
+    document.querySelector('.loading-container').style.opacity = '0';
 }
 
 function loadPage(delay = 1000) {
