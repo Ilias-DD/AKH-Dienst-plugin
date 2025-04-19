@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Shift Calendar View",
   "version": "1.0",
-  "description": "Transforms shift table into a calendar view",
+  "description": "Mordernize AKH's shift manager UI.",
   "icons": {
     "48": "icons/icon.png"
   },
@@ -12,8 +12,16 @@
   "content_scripts": [
     {
       "matches": ["https://edm.meduniwien.ac.at/dienstplan.php*"],
-      "js": ["scripts/shiftCalendar.js", "scripts/controllers.js","scripts/shiftCalendarPlugin.js"],
-      "css": ["styles/preloadHide.css", "styles/purpleCalendarTheme.css"],
+      "js": [
+        "scripts/shiftCalendar.js",
+        "scripts/controllers.js",
+        "scripts/loaderManager.js",
+        "scripts/shiftCalendarPlugin.js"
+      ],
+      "css": [
+        "styles/preloadHide.css",
+         "styles/purpleCalendarTheme.css"
+        ],
       "run_at": "document_start"
     },
     {
@@ -23,7 +31,11 @@
     },
     {
       "matches":["https://edm.meduniwien.ac.at/absenzenplan_frame.php*"],
-      "js": ["scripts/shiftCalendar.js", "scripts/controllers.js","scripts/shiftCalendarPlugin.js"],
+      "js": [
+        "scripts/shiftCalendar.js", 
+        "scripts/controllers.js",
+        "scripts/shiftCalendarPlugin.js"
+      ],
       "css": ["styles/purpleCalendarTheme.css"]
     },
     {

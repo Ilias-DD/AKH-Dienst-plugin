@@ -158,8 +158,6 @@ function extractDate() {
 // Add a check to ensure the page is fully loaded
 function init() {
     // Check if the last table exists and has the expected structure
-    console.log("I am here")
-
     const tables = document.getElementsByTagName('table');
     if (tables.length > 0) {
         const lastTable = tables[tables.length - 1];
@@ -171,17 +169,13 @@ function init() {
             document.body.appendChild(createControlsForUnavailableCallendar());
         }
     }
-    showPage();
 }
 
 console.log("I am running on this page " + window.location.href);
+
+loadPage();
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
 } else {
     init();
 } 
-
-function showPage() {
-    document.documentElement.style.opacity = '1';
-    document.body.style.opacity = '1';
-}

@@ -1,4 +1,36 @@
-html, body {
+body {
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transform: translateY(-20px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+
+  .meduni-svg-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    opacity: 1;
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
+  }
+
+  .meduni-svg-loader svg {
+    width: 80px;
+    height: 80px;
+    animation: rotate 2s linear infinite;
+  }
+
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
