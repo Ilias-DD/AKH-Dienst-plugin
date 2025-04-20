@@ -1,3 +1,5 @@
+/* LoaderManager expects to have injected the preloadHide.css style*/
+
 function initLoader(){
     // Create and inject the loader
     const container = document.createElement('div');
@@ -36,9 +38,9 @@ function loadPage(delay = 1000) {
     initLoader();
     setTimeout(() =>{
         removeLoader();
-        document.documentElement.style.opacity = '1';
-        document.documentElement.style.transform = 'translateY(0)';
-        document.body.style.opacity = '1';
-        document.body.style.transform = 'translateY(0)';
+        if(document.body != null){
+            document.body.style.opacity = '1';
+            document.body.style.transform = 'translateY(0)';
+        }
     }, delay)
 }

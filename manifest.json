@@ -32,11 +32,16 @@
     {
       "matches":["https://edm.meduniwien.ac.at/absenzenplan_frame.php*"],
       "js": [
-        "scripts/shiftCalendar.js", 
-        "scripts/controllers.js",
-        "scripts/shiftCalendarPlugin.js"
+        "scripts/shiftCalendar.js",
+        "scripts/loaderManager.js",
+        "scripts/absenzenplanViewPlugin.js"
       ],
-      "css": ["styles/purpleCalendarTheme.css"]
+      "css": [
+        "styles/preloadHide.css",
+        "styles/globalStyle.css",
+        "styles/purpleCalendarTheme.css"
+    ],
+    "run_at": "document_start"
     },
     {
       "matches":["https://edm.meduniwien.ac.at/login.php"],
