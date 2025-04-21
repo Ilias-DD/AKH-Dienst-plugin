@@ -1,3 +1,31 @@
+function mapShiftTypeToResponsiblesType(shiftType){
+    const listOfShiftTypes1 = [
+        "738:OP 5 ASS1", 
+        "738:OP 5 ASS2", 
+        "738:ASS GEB.", 
+        "VD1 10:00-18:00", 
+        "VD2 10:00-18:00",
+        "738: bASS",
+        "738: bLTX"
+    ];
+    const listOfShiftTypes2 = [
+        "738:UNFALL ASS1",
+        "738:UNFALL ASS2",
+        "738:UNFALL ASS3"
+    ]
+    const listOfResponsibles1 = ["OA_E9", "SV_E9"];
+    const listOfResponsibles2 = ["738:UNFALL OA"];
+
+    if(listOfShiftTypes1.includes(shiftType)){
+        return listOfResponsibles1;
+    }
+    if(listOfShiftTypes2.includes(shiftType)){
+        return listOfResponsibles2;
+    }
+    return [];
+}
+
+
 function createShiftCalendar(shifts, personName, month, year, containerId) {
     // Filter shifts for the specific person
     const personShifts = shifts.filter(shift => shift.personName === personName);
@@ -73,13 +101,28 @@ function createShiftCalendar(shifts, personName, month, year, containerId) {
                                         s.date.getMonth() === currentDate.getMonth() &&
                                         s.date.getFullYear() === currentDate.getFullYear()
                                     );
-
+                                    let responsibles = [];
+                                    let respsType = shift != null ? mapShiftTypeToResponsiblesType(shift.type) : [];
+                                    if (respsType && respsType.length){
+                                        responsibles = shifts.filter(sh => sh.date.getDate() === currentDate.getDate() &&
+                                                    respsType.includes(sh.type));
+                                    }
                                     return `
-                                        <td>
+                                    <td>
+                                        <div class="td-wrapper">
                                             <div class="day-number">${day}</div>
                                             ${shift ? `<div class="shift-info">${shift.type}</div>` : ''}
-                                        </td>
-                                    `;
+                                            ${
+                                                (responsibles && responsibles.length) 
+                                                    ? `<div class="shift-responsibles-container">
+                                                        <div class="resp-title"> Responsibles </div>
+                                                        ${responsibles.map(r => `<div>${r.type}: ${r.personName}</div>`).join('')}
+                                                    </div>`
+                                                    : ''
+                                            }
+                                        </div>
+                                    </td>
+                                `;
                                 }).join('')}
                             </tr>
                         `).join('')}
