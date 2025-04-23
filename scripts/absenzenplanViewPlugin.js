@@ -17,8 +17,8 @@ function generate(){
       let shiftType = rows[3].children[i].querySelector("font");
       if(!shiftType)
       {
-        console.warn("Undefined is " + i);
-        shiftType = "";
+        console.log("Day " + i + " is a free day :)");
+        continue;
       }
       else{
         shiftType = shiftType.textContent;
