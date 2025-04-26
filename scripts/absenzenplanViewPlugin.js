@@ -32,6 +32,28 @@ function generate(){
       console.log(shiftElement);
       shiftsForThisMonth.push(shiftElement);
     }
+
+  const controllers = document.createElement("div");
+  // Create switch view button
+  const swithcButton = createButton('hide-button', "Show ugly view", () => {
+    const calendar = document.getElementById('calendarToHide');
+    const uglyView = document.getElementsByTagName('frameset')[0];
+    const hideBtn = document.getElementById('hide-button');
+    if (window.getComputedStyle(calendar).opacity === "1"){
+        calendar.style.opacity = "0";
+        uglyView.style.opacity = "1";
+        hideBtn.textContent = `Show ugly view`;
+
+    }
+    else{
+        calendar.style.opacity = "1";
+        uglyView.style.opacity = "0";
+        hideBtn.textContent = `Show nice calendar view`;
+    }
+    });
+    controllers.appendChild(swithcButton);
+    document.body.appendChild(controllers);
+
     const container = document.createElement('div');
     container.id = 'shift-calendar-container';
     container.className = 'shift-calendar';
