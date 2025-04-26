@@ -266,6 +266,17 @@ form[name="filter"] select {
     cursor: pointer;
 }
 
+form[name="filter"] select option:checked{
+    background-color: #9a79dd;
+    color: white;
+}
+
+form[name="filter"] select option:focus{
+    background-color: #9a79dd;
+    color: white;
+    outline: none;
+}
+
 form[name="filter"] select#abteilung {
     width: 250px;
 }
