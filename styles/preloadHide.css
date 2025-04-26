@@ -1,43 +1,47 @@
-body, frameset {
-    opacity: 0 ;
-    transform: translateY(-20px);
-    transition:
-      opacity 0.8s ease,
-      transform 0.8s ease;
-  }
+body{
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 0;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
 
-  .loading-container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10000;
-    width: 25%;
-    height: 25%;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    opacity: 1;
-    transition:
-      opacity 0.5s ease,
-      transform 0.5s ease;
-  }
+.loading-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e5d4f7;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s ease;
+}
 
-  
-  .loadingMessage {
-    font-size: 25px;
-    color: #001f4d;
-  }
 
-  .meduni-svg-loader svg {
-    width: 80px;
-    height: 80px;
-    animation: rotate 2s linear infinite;
-  }
+.loadingMessage {
+  font-size: 25px;
+  color: #001f4d;
+}
 
-  @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+.meduni-svg-loader svg {
+  width: 80px;
+  height: 80px;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

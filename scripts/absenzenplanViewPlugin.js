@@ -37,22 +37,19 @@ function generate(){
   // Create switch view button
   const swithcButton = createButton('hide-button', "Show ugly view", () => {
     const calendar = document.getElementById('calendarToHide');
-    const uglyView = document.getElementsByTagName('frameset')[0];
     const hideBtn = document.getElementById('hide-button');
     if (window.getComputedStyle(calendar).opacity === "1"){
         calendar.style.opacity = "0";
-        uglyView.style.opacity = "1";
-        hideBtn.textContent = `Show ugly view`;
-
+        hideBtn.textContent = `Show nice view`;
     }
     else{
         calendar.style.opacity = "1";
-        uglyView.style.opacity = "0";
-        hideBtn.textContent = `Show nice calendar view`;
+        hideBtn.textContent = `Show ugly view`;
     }
     });
     controllers.appendChild(swithcButton);
     document.body.appendChild(controllers);
+    controllers.style.backgroundColor='#e5d4f7';
 
     const container = document.createElement('div');
     container.id = 'shift-calendar-container';
@@ -60,6 +57,7 @@ function generate(){
     document.body.appendChild(container);
 
     createShiftCalendar(shiftsForThisMonth, name.replace(/<br>/g, ''), dienstMonth, dienstYear, "shift-calendar-container");
+    removeLoader();
   }
 
   function initMonthlyCalendarView(){
@@ -86,7 +84,7 @@ function generate(){
 
 const body = document.createElement("body");
 document.documentElement.appendChild(body);
-loadPage(1000);
+initLoader();
 if (document.readyState !== 'complete') {
     document.addEventListener('DOMContentLoaded', initMonthlyCalendarView);
 } else {

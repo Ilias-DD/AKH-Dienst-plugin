@@ -31,16 +31,19 @@ function initLoader(){
 }
 
 function removeLoader(){
+    if(document.body != null){
+        document.body.style.opacity = '1';
+    }
     document.querySelector('.loading-container').style.opacity = '0';
+    document.querySelector('.loading-container').style.zIndex = '9000';
+    setTimeout(() => {
+        document.querySelector('.loading-container').style.zIndex = '-10'
+    }, 1200)
 }
 
 function loadPage(delay = 1000) {
     initLoader();
     setTimeout(() =>{
         removeLoader();
-        if(document.body != null){
-            document.body.style.opacity = '1';
-            document.body.style.transform = 'translateY(0)';
-        }
     }, delay)
 }

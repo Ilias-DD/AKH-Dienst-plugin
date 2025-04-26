@@ -33,6 +33,7 @@
       "matches":["https://edm.meduniwien.ac.at/absenzenplan_frame.php*"],
       "js": [
         "scripts/shiftCalendar.js",
+        "scripts/controllers.js",
         "scripts/loaderManager.js",
         "scripts/absenzenplanViewPlugin.js"
       ],
