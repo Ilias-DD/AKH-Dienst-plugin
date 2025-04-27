@@ -1,8 +1,7 @@
 
 function generate(){
     // Find the original table
-    const originalTable = window.frames["main"].document.documentElement.querySelector('form[name] table');
-    console.log(originalTable);
+    const originalTable = frames[1].document.documentElement.querySelector('form[name] table');
     if (!originalTable) return console.warn("Original table not found");
 
     const rows = originalTable.querySelectorAll('tr');
@@ -28,8 +27,7 @@ function generate(){
         type: shiftType,
         personName: name.replace(/<br>/g, ''),
       }
-      console.log("Date "+ rows[1].children[i - 2].textContent.trim()  )
-      console.log(shiftElement);
+      
       shiftsForThisMonth.push(shiftElement);
     }
 
@@ -64,18 +62,27 @@ function generate(){
     const mainFrame = document.querySelector("frame[name='main']");
     if (!mainFrame) return console.warn("Main frame not found");
 
-    // Wait for the frame to load
-    mainFrame.addEventListener('load', () => {
-      generate();
-    });
-  }
+    function getMainFrameDocument() {
+      const frame = frames[1];
+      if (frame != undefined && frame.document != undefined && frame.document.readyState == "complete") {
+          generate();
+      } else {
+        // Try again later
+        setTimeout(getMainFrameDocument, 100);
+      }
+    }
+
+    if(mainFrame.document == undefined){
+      setTimeout(getMainFrameDocument, 500)
+    }
+    else generate();
+  } 
 
   function extractDate() {
     //Exctract month and year
   //https://exmpleUrl?j=2025&m=4&abt=5002
   const urlMediUni = new URL(window.location.href);
   const params = new URLSearchParams(urlMediUni.search);
-  console.log(urlMediUni.search);
   
   const dienstYear = parseInt(params.get('j'), 10); 
   const dienstMonth = parseInt(params.get('m'), 10) - 1;
