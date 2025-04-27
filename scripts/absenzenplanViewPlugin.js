@@ -1,7 +1,20 @@
+function getMainFrame(){
+   // CHROME
+   if (navigator.userAgent.indexOf("Chrome") != -1 ) {
+    console.log("Google Chrome");
+    return  window.frames["main"];
+
+  }
+  // FIREFOX
+  else if (navigator.userAgent.indexOf("Firefox") != -1 ) {
+    console.log("Mozilla Firefox");
+    return frames[1];
+  }
+}
 
 function generate(){
     // Find the original table
-    const originalTable = frames[1].document.documentElement.querySelector('form[name] table');
+    const originalTable = getMainFrame().document.documentElement.querySelector('form table');
     if (!originalTable) return console.warn("Original table not found");
 
     const rows = originalTable.querySelectorAll('tr');
@@ -32,6 +45,7 @@ function generate(){
     }
 
   const controllers = document.createElement("div");
+  controllers.className="shift-buttons";
   // Create switch view button
   const swithcButton = createButton('hide-button', "Show ugly view", () => {
     const calendar = document.getElementById('calendarToHide');
@@ -45,7 +59,10 @@ function generate(){
         hideBtn.textContent = `Show ugly view`;
     }
     });
+
+    controllers.appendChild(createPreviousMonthButton());
     controllers.appendChild(swithcButton);
+    controllers.appendChild(createNextMonthButton());
     document.body.appendChild(controllers);
     controllers.style.backgroundColor='#e5d4f7';
 
@@ -59,24 +76,36 @@ function generate(){
   }
 
   function initMonthlyCalendarView(){
-    const mainFrame = document.querySelector("frame[name='main']");
+    const mainFrame = getMainFrame();
     if (!mainFrame) return console.warn("Main frame not found");
 
+    generateCalendar();
+  } 
+
+function generateCalendar() {
+   // CHROME
+   if (navigator.userAgent.indexOf("Chrome") != -1 ) {
+    // Wait for the frame to load
+    let mainFrame = getMainFrame();
+    mainFrame.addEventListener('load', () => {
+      generate();
+    });
+  }
+  else{
     function getMainFrameDocument() {
-      const frame = frames[1];
+      let frame = getMainFrame();
       if (frame != undefined && frame.document != undefined && frame.document.readyState == "complete") {
-          generate();
+        console.log("test");
+        generate();
       } else {
         // Try again later
+        console.log("ssetTimeout");
         setTimeout(getMainFrameDocument, 100);
       }
     }
-
-    if(mainFrame.document == undefined){
-      setTimeout(getMainFrameDocument, 500)
-    }
-    else generate();
+    setTimeout(getMainFrameDocument, 500);
   } 
+}
 
   function extractDate() {
     //Exctract month and year
