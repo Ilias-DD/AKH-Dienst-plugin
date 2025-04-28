@@ -52,10 +52,15 @@ function generate(){
     const hideBtn = document.getElementById('hide-button');
     if (window.getComputedStyle(calendar).opacity === "1"){
         calendar.style.opacity = "0";
+        calendar.style.pointerEvents = "none";
+        document.body.style.pointerEvents = "none";
         hideBtn.textContent = `Show nice view`;
+        hideBtn.style.pointerEvents = "auto"
     }
     else{
         calendar.style.opacity = "1";
+        calendar.style.pointerEvents = "auto";
+        document.body.style.pointerEvents = "auto";
         hideBtn.textContent = `Show ugly view`;
     }
     });

@@ -200,7 +200,7 @@ function createButton(buttonId, content, callback ) {
     //There is still an issue when going to a month which doesn't 
     // contain the name of the one we stored locally
 function createPreviousMonthButton(){
-   return createButton('previousMonth-button', String.fromCharCode(8249), function(){
+   return createButton('previousMonth-button', "<< PREV", function(){
         let { dienstMonth, dienstYear } = extractDate();
         dienstYear = dienstMonth == 0 ? dienstYear - 1 : dienstYear;
         dienstMonth = dienstMonth == 0 ? 11 : dienstMonth;
@@ -214,7 +214,7 @@ function createPreviousMonthButton(){
 }
 
 function createNextMonthButton(){
-    return createButton('nextMonth-button', String.fromCharCode(8250), function(){
+    return createButton('nextMonth-button', "NEXT >>", function(){
         let { dienstMonth, dienstYear } = extractDate();
 
         dienstYear = dienstMonth + 2 > 12 ? dienstYear + 1 : dienstYear;
