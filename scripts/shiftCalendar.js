@@ -111,7 +111,7 @@ function createShiftCalendar(shifts, personName, month, year, containerId) {
                                     <td>
                                         <div class="td-wrapper">
                                             <div class="day-number">${day}</div>
-                                            ${shift ? `<div class="shift-info">${shift.type}</div>` : ''}
+                                            ${shift ? `<div class="${shift.infoClass ? shift.infoClass : "shift-info"}">${shift.type}</div>` : ''}
                                             ${
                                                 (responsibles && responsibles.length) 
                                                     ? `<div class="shift-responsibles-container">

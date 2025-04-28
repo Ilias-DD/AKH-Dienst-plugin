@@ -76,6 +76,28 @@
     text-align: center;
 }
 
+/* Vacations */
+.calendar .vacations {
+    margin-top: 20px;
+    font-size: 0.85em;
+    color: #fff;
+    background: rgb(81, 138, 56);
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Vacations */
+.calendar .normal-day {
+    margin-top: 20px;
+    font-size: 0.85em;
+    color: black;
+    background: rgb(192, 192, 192);
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
 /* Shift Controls Container */
 .shift-controls {
     display: flex;

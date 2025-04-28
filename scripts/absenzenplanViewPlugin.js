@@ -39,6 +39,7 @@ function generate(){
         date: date,
         type: shiftType,
         personName: name.replace(/<br>/g, ''),
+        infoClass: getShiftClass(shiftType),
       }
       
       shiftsForThisMonth.push(shiftElement);
@@ -55,7 +56,7 @@ function generate(){
         calendar.style.pointerEvents = "none";
         document.body.style.pointerEvents = "none";
         hideBtn.textContent = `Show nice view`;
-        hideBtn.style.pointerEvents = "auto"
+        controllers.style.pointerEvents = "auto"
     }
     else{
         calendar.style.opacity = "1";
@@ -121,6 +122,26 @@ function generateCalendar() {
   const dienstYear = parseInt(params.get('j'), 10); 
   const dienstMonth = parseInt(params.get('m'), 10) - 1;
   return { dienstMonth, dienstYear };
+}
+
+function getShiftClass(shiftType){
+  const normalDays = ["T"];
+  const shifts = ["OP51", "OP52", "bASS", "UNF1", "UNF2" ,"UNF3", "GEBA"];
+  const vacations = ["U"];
+
+  if(normalDays.includes(shiftType)){
+     return "normal-day";
+  }
+
+  if(shifts.includes(shiftType)){
+     return "shift-info";
+    }
+
+  if(vacations.includes(shiftType)) {
+    return "vacations";
+  }
+
+  return "normal-day";
 }
 
 const body = document.createElement("body");
