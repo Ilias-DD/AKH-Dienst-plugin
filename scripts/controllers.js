@@ -196,9 +196,6 @@ function createButton(buttonId, content, callback ) {
     return button;
 }
 
-//TODO: Refactor the month logic
-    //There is still an issue when going to a month which doesn't 
-    // contain the name of the one we stored locally
 function createPreviousMonthButton(){
    return createButton('previousMonth-button', "<< PREV", function(){
         let { dienstMonth, dienstYear } = extractDate();
