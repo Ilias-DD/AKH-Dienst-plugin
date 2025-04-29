@@ -126,7 +126,11 @@ function generateCalendar() {
 
 function getShiftClass(shiftType){
   const normalDays = ["T"];
-  const shifts = ["OP51", "OP52", "bASS", "UNF1", "UNF2" ,"UNF3", "GEBA"];
+  const shifts = ["KO", "OA_E9", "SV_E9", "OP51", "OP52", "bASS",
+     "UNF1", "UNF2" ,"UNF3", "GEBA", "VD1" , "VD2", "bLTX", "UNFO",
+    "KIMC", "NCHO", "NCHA", "NCHI1", "B19O", "B1H", "9HD", "C1IO",
+    "C1H", "OA_KI", "C2O", "C2H", "A7H", "NEF1", "NEF2", "NEFN1",
+    "NEFN2", "hNT1", "hNT2","hNN1", "hNN2", "SPÄ1", "SPÄ2"];
   const vacations = ["U"];
 
   if(normalDays.includes(shiftType)){
