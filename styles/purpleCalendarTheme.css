@@ -109,6 +109,17 @@
     text-align: center;
 }
 
+/*Research vienna*/
+.calendar .research-vienna {
+    margin-top: 20px;
+    font-size: 0.85em;
+    color: black;
+    background: rgb(213, 215, 85);
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
 /* Shift Controls Container */
 .shift-controls {
     display: flex;

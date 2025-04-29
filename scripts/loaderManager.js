@@ -30,9 +30,12 @@ function initLoader(){
     document.documentElement.appendChild(container);
 }
 
-function removeLoader(){
-    if(document.body != null){
+function removeLoader(mainContainer){
+    if(!mainContainer && document.body != null){
         document.body.style.opacity = '1';
+    }
+    else{
+        mainContainer.style.opacity ='1';
     }
     document.querySelector('.loading-container').style.opacity = '0';
     document.querySelector('.loading-container').style.zIndex = '9000';

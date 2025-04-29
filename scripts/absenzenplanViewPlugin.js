@@ -54,14 +54,14 @@ function generate(){
     if (window.getComputedStyle(calendar).opacity === "1"){
         calendar.style.opacity = "0";
         calendar.style.pointerEvents = "none";
-        document.body.style.pointerEvents = "none";
+        body.style.pointerEvents = "none";
         hideBtn.textContent = `Show nice view`;
         controllers.style.pointerEvents = "auto"
     }
     else{
         calendar.style.opacity = "1";
         calendar.style.pointerEvents = "auto";
-        document.body.style.pointerEvents = "auto";
+        body.style.pointerEvents = "auto";
         hideBtn.textContent = `Show ugly view`;
     }
     });
@@ -69,16 +69,16 @@ function generate(){
     controllers.appendChild(createPreviousMonthButton());
     controllers.appendChild(swithcButton);
     controllers.appendChild(createNextMonthButton());
-    document.body.appendChild(controllers);
+    body.appendChild(controllers);
     controllers.style.backgroundColor='#e5d4f7';
 
     const container = document.createElement('div');
     container.id = 'shift-calendar-container';
     container.className = 'shift-calendar';
-    document.body.appendChild(container);
+    body.appendChild(container);
 
     createShiftCalendar(shiftsForThisMonth, name.replace(/<br>/g, ''), dienstMonth, dienstYear, "shift-calendar-container");
-    removeLoader();
+    removeLoader(body);
   }
 
   function initMonthlyCalendarView(){
@@ -135,8 +135,9 @@ function getShiftClass(shiftType){
     "KIMC", "NCHO", "NCHA", "NCHI1", "B19O", "B1H", "9HD", "C1IO",
     "C1H", "OA_KI", "C2O", "C2H", "A7H", "NEF1", "NEF2", "NEFN1",
     "NEFN2", "hNT1", "hNT2","hNN1", "hNN2", "SPÄ1", "SPÄ2"];
-  const vacations = ["U"];
+  const vacations = ["U", "RT", "LT"];
   const researhDaysAbroad = ["wF"];
+  const researchDaysInVienna = ["WT"];
 
   if(normalDays.includes(shiftType)){
      return "normal-day";
@@ -149,6 +150,11 @@ function getShiftClass(shiftType){
   if(researhDaysAbroad.includes(shiftType)){
     return "research-abroad";
   }
+
+  if(researchDaysInVienna.includes(shiftType)){
+    return "research-vienna";
+  }
+
   if(vacations.includes(shiftType)) {
     return "vacations";
   }
@@ -156,7 +162,8 @@ function getShiftClass(shiftType){
   return "normal-day";
 }
 
-const body = document.createElement("body");
+const body = document.createElement("div");
+body.className = 'monthly-view';
 document.documentElement.appendChild(body);
 initLoader();
 if (document.readyState !== 'complete') {
