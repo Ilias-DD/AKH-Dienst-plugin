@@ -16,6 +16,8 @@ And it doesn’t stop at a glow-up. We added a bunch of features to make your ex
 - 📤 **Export your shifts**:
   - To your **Google Calendar** with one click.
   - Or download as a **.CSV file** for spreadsheets, reports, or sharing with coworkers.
+
+![Alt text](ressources/bloggif_681081ea96f79.gif "shift view")
 ---
 
 ## 🖥️ Supported Browsers
