@@ -98,6 +98,17 @@
     text-align: center;
 }
 
+/*Research Abroad*/
+.calendar .research-abroad {
+    margin-top: 20px;
+    font-size: 0.85em;
+    color: #fff;
+    background: rgb(137, 138, 56);
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
 /* Shift Controls Container */
 .shift-controls {
     display: flex;

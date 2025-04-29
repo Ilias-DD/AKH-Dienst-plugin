@@ -125,6 +125,10 @@ function generateCalendar() {
 }
 
 function getShiftClass(shiftType){
+  //TODO: ASK questions about shift types:
+  // IS RT -> ruhe tage -> should it be green as vacations
+  // Is WF -> research abroad? Is blue good?
+  // Do we need second + third lines?
   const normalDays = ["T"];
   const shifts = ["KO", "OA_E9", "SV_E9", "OP51", "OP52", "bASS",
      "UNF1", "UNF2" ,"UNF3", "GEBA", "VD1" , "VD2", "bLTX", "UNFO",
@@ -132,6 +136,7 @@ function getShiftClass(shiftType){
     "C1H", "OA_KI", "C2O", "C2H", "A7H", "NEF1", "NEF2", "NEFN1",
     "NEFN2", "hNT1", "hNT2","hNN1", "hNN2", "SPÄ1", "SPÄ2"];
   const vacations = ["U"];
+  const researhDaysAbroad = ["wF"];
 
   if(normalDays.includes(shiftType)){
      return "normal-day";
@@ -141,6 +146,9 @@ function getShiftClass(shiftType){
      return "shift-info";
     }
 
+  if(researhDaysAbroad.includes(shiftType)){
+    return "research-abroad";
+  }
   if(vacations.includes(shiftType)) {
     return "vacations";
   }
