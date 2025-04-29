@@ -34,7 +34,7 @@ function extractShifts() {
                         const personName = cells[i].textContent.trim();
                         if (personName) {
                             shifts.push({
-                                date: new Date(dienstYear, dienstMonth, day),
+                                date: new Date(dienstYear, dienstMonth, day, 8),
                                 type: headers[i],
                                 personName: personName.replace(/<br>/g, ''),
                             });

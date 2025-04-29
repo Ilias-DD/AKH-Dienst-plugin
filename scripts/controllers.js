@@ -140,10 +140,10 @@ function createControls(shifts) {
     buttonContainer.appendChild(exportToGmailButton);
 
     // Create download button
-    const exportButton = createButton('export-button', `Export to CSV`, () => {
+    const exportButton = createButton('export-button', `Export to ICS`, () => {
         const selector = document.getElementById('person-selector');
         const selectedPerson = selector.value;
-        downloadShiftsCSV(shifts, selectedPerson);
+        downloadShiftsICS(shifts, selectedPerson);
     });
     buttonContainer.appendChild(exportButton);
 
@@ -155,6 +155,72 @@ function createControls(shifts) {
         selector: select,
         downloadButton: exportButton
     };
+}
+
+function downloadShiftsICS(shifts, personName) {
+    // Filter and sort shifts for selected person
+    const personShifts = shifts
+        .filter(shift => shift.personName === personName)
+        .sort((a, b) => a.date - b.date);
+
+    console.log(personShifts);
+    // Start building the ICS content
+    let icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//Shift Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+`;
+    function formatDate(date, timeZone = 'Europe/Berlin') {
+        const formatter = new Intl.DateTimeFormat('en-CA', {
+            timeZone,
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+        });
+    
+        const parts = formatter.formatToParts(date);
+        const y = parts.find(p => p.type === 'year').value;
+        const m = parts.find(p => p.type === 'month').value;
+        const d = parts.find(p => p.type === 'day').value;
+    
+        return `${y}${m}${d}`; 
+    }
+
+    personShifts.forEach(shift => {
+        const startDate = formatDate(shift.date);
+        const endDate = formatDate(new Date(shift.date.getTime() + 86400000));
+
+        icsContent += `BEGIN:VEVENT
+SUMMARY:${shift.type}
+DTSTART;VALUE=DATE:${startDate}
+DTEND;VALUE=DATE:${endDate}
+DESCRIPTION:Shift for ${personName}
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT12H
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+`;
+    });
+
+    icsContent += `END:VCALENDAR`;
+
+    // Create a Blob and download
+    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${personName}_shifts.ics`;
+    a.style.visibility = 'hidden';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
 
 function exportShiftsToGmail(shifts, personName) {
