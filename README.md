@@ -17,7 +17,7 @@ And it doesn’t stop at a glow-up. We added a bunch of features to make your ex
   - To your **Google Calendar** with one click.
   - Or download as a **.CSV file** for spreadsheets, reports, or sharing with coworkers.
 
-![Alt text](ressources/bloggif_681081ea96f79.gif "shift view")
+![shift view](ressources/bloggif_681081ea96f79.gif "shift view")
 ---
 
 ## 🖥️ Supported Browsers
