@@ -18,7 +18,7 @@ And it doesn’t stop at a glow-up. We added a bunch of features to make your ex
   - Or download as a **.CSV file** for spreadsheets, reports, or sharing with coworkers.
 
 ![shift view](ressources/monthlyView.gif "shift view")
-![login view](ressource/loginView.gif "Login view")
+![login view](ressources/loginView.gif "Login view")
 ---
 
 ## 🖥️ Supported Browsers
