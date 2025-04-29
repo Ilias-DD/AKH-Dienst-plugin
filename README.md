@@ -53,8 +53,8 @@ Built with:
 **Q: Will it break my old website?**  
 A: Only in the best possible way.
 
-**Q: Does it support all frameset sites?**  
-A: Not *every* one, but we're working on broad compatibility. You can suggest a site via the Issues tab!
+**Q: What should I do if a page is broke?**  
+A: Take a deep breath — Disable the plugin — contribute to the project — raise an issue but prepare some 🍺🍺
 
 **Q: Can I export shifts from any calendar page?**  
 A: As long as the export button is there it should — yep!
