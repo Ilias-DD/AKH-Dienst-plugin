@@ -1,3 +1,19 @@
+//TODO: ASK questions about shift types:
+  // IS RT -> ruhe tage -> should it be green as vacations
+  // Is WF -> research abroad? Is blue good?
+  // Do we need second + third lines?
+  const normalDays = ["T"];
+  const shifts24h = ["KO", "OA_E9", "SV_E9", "OP51", "OP52", "bASS",
+     "UNF1", "UNF2" ,"UNF3", "GEBA", "VD1" , "VD2", "bLTX", "UNFO",
+    "KIMC", "NCHO", "NCHA", "NCHI1", "B19O", "B1H", "9HD", "C1IO",
+    "C1H", "OA_KI", "C2O", "C2H", "A7H", "NEF1", "NEF2", "NEFN1",
+    "NEFN2", "hNT1", "hNT2","hNN1", "hNN2", "SPÄ1", "SPÄ2"];
+  const vacations = ["U", "RT", "LT"];
+  const researhDaysAbroad = ["wF"];
+  const researchDaysInVienna = ["WT"];
+  const shiftsForThisMonth = [];
+
+
 function getMainFrame(){
    // CHROME
    if (navigator.userAgent.indexOf("Chrome") != -1 ) {
@@ -23,7 +39,6 @@ function generate(){
     const name = rows[3].querySelector('a').innerHTML.trim();
 
     const { dienstMonth, dienstYear } = extractDate();
-    const shiftsForThisMonth = [];
     for(let i = 2; i < rows[3].children.length; i++){
       let date = new Date(dienstYear, dienstMonth,  parseInt(rows[1].children[i - 2].textContent.trim() ,10));
       let shiftType = rows[3].children[i].querySelector("font");
@@ -70,6 +85,7 @@ function generate(){
 
     controllers.appendChild(createPreviousMonthButton());
     controllers.appendChild(swithcButton);
+    controllers.appendChild(createExportToIcs());
     controllers.appendChild(createNextMonthButton());
 
     const container = document.createElement('div');
@@ -87,6 +103,7 @@ function generate(){
 
     generateCalendar();
   } 
+
 
 function generateCalendar() {
    // CHROME
@@ -113,6 +130,21 @@ function generateCalendar() {
   } 
 }
 
+  function createExportToIcs(){
+    return createButton('export-button', `Export to ICS`, () => {
+          const selectedPerson = shiftsForThisMonth[0].personName;
+          let filteredShifts = shiftsForThisMonth.filter(s => isSpecialShift(s.type));
+          downloadShiftsICS(filteredShifts, selectedPerson);
+      });
+  }
+
+  function isSpecialShift(sType){
+    return researhDaysAbroad.includes(sType) || 
+    researchDaysInVienna.includes(sType)
+    || shifts24h.includes(sType)
+    || vacations.includes(sType);
+  }
+
   function extractDate() {
     //Exctract month and year
   //https://exmpleUrl?j=2025&m=4&abt=5002
@@ -125,25 +157,11 @@ function generateCalendar() {
 }
 
 function getShiftClass(shiftType){
-  //TODO: ASK questions about shift types:
-  // IS RT -> ruhe tage -> should it be green as vacations
-  // Is WF -> research abroad? Is blue good?
-  // Do we need second + third lines?
-  const normalDays = ["T"];
-  const shifts = ["KO", "OA_E9", "SV_E9", "OP51", "OP52", "bASS",
-     "UNF1", "UNF2" ,"UNF3", "GEBA", "VD1" , "VD2", "bLTX", "UNFO",
-    "KIMC", "NCHO", "NCHA", "NCHI1", "B19O", "B1H", "9HD", "C1IO",
-    "C1H", "OA_KI", "C2O", "C2H", "A7H", "NEF1", "NEF2", "NEFN1",
-    "NEFN2", "hNT1", "hNT2","hNN1", "hNN2", "SPÄ1", "SPÄ2"];
-  const vacations = ["U", "RT", "LT"];
-  const researhDaysAbroad = ["wF"];
-  const researchDaysInVienna = ["WT"];
-
   if(normalDays.includes(shiftType)){
      return "normal-day";
   }
 
-  if(shifts.includes(shiftType)){
+  if(shifts24h.includes(shiftType)){
      return "shift-info";
     }
 
