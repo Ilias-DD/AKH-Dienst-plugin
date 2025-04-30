@@ -1,47 +1,39 @@
 body, .monthly-view {
     font-size: 10pt;
-    background: #e5d4f7 !important;
+    background: #F9F7F1 !important;
     margin: 0;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #2C3E50;
+    font-family: 'Arial', 'Helvetica', sans-serif;
     text-decoration: none;
 }
 
 h1 {
     font-size: 18pt;
     font-weight: normal;
-    color: #4b0082;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
+    color: #2C3E50;
 }
 
 h2 {
     font-size: 14pt;
     font-weight: normal;
-    color: #4b0082;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
+    color: #2C3E50;
 }
 
 h3, h4, h5 {
     font-weight: bold;
     font-size: 120%;
-    color: #800080;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
+    color: #4A4A4A;
 }
 
 a:link, a:visited {
-    color: #9370db;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #C97C5D;
 }
 
 a:hover {
-    color: #ba55d3;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #E9C46A;
 }
 
-.noline {
+.noline, .nounderline {
     text-decoration: none;
 }
 
@@ -50,10 +42,8 @@ ol {
 }
 
 .footer, td {
-    font-weight: normal;
     font-size: 7pt;
-    color: #4b0082;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #2C3E50;
     padding: 2px;
 }
 
@@ -62,323 +52,202 @@ table {
 }
 
 .table_red {
-    font-weight: normal;
     font-size: 8pt;
-    background: #8b008b;
+    background: #C97C5D;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
     padding: 2px;
 }
 
-.backgrd {
-    background: white;
-    font-family: Arial, Helvetica, sans-serif;
+.backgrd, .contentcol {
+    background: #FFFFFF;
 }
 
 .absenz {
-    font-weight: normal;
     font-size: 7pt;
-    color: #4b0082;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #2C3E50;
 }
 
 .title {
     font-size: 10pt;
     font-weight: bold;
-    color: #4b0082;
-    background: #e5d4f7;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #2C3E50;
+    background: #D5CABD;
 }
 
-.inhalt_rk, .select_rk {
+.inhalt_rk, .select_rk,
+.inhalt_t, .inhalt, .inhalt2 {
     font-size: 8pt;
-    font-weight: normal;
-    color: #4b0082;
-    background: #e5d4f7;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #2C3E50;
+    background: #F9F7F1;
 }
 
 .title_red {
-    font-size: 10pt;
-    font-weight: bold;
-    color: #4b0082;
-    background: #f2d6eb;
-    font-family: Arial, Helvetica, sans-serif;
+    background: #E9C46A;
 }
 
-.inhalt_t, .inhalt, .inhalt2, .contentcol {
-    font-weight: normal;
-    font-size: 8pt;
-    color: #4b0082;
-    background: #f5e6ff;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.feiertag_t, .feiertag {
-    background: #f2d6eb;
+.feiertag_t, .feiertag,
+.feiertag_t_s, .feiertag_s {
+    background: #F0E2D0;
 }
 
 .inhalt_t_s, .inhalt_s {
-    background: #c8b4d6;
-}
-
-.feiertag_t_s, .feiertag_s {
-    background: #d6b4c8;
+    background: #EFE7DA;
 }
 
 .inhalt_p_ok {
-    background: #b4d6c8;
+    background: #D6EADF;
 }
 
 .inhalt_p_nok {
-    background: #d6b4c8;
+    background: #F5C9C9;
 }
 
 .inhalt_bgred {
-    background: #c080c0;
+    background: #C97C5D;
 }
 
 .headline {
     font-weight: bold;
     font-size: 12pt;
-    color: #4b0082;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #2C3E50;
 }
 
 .subline {
     font-weight: bold;
     font-size: 130%;
-    color: #800080;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #4A4A4A;
 }
 
 .searchbar {
-    background: #9370db;
+    background: #E9C46A;
 }
 
 .navicol {
-    background: #d8b4f2;
+    background: #D5CABD;
 }
 
 .promocol {
-    background: #e6d5f5;
-}
-
-.contentcol {
-    background: #ffffff;
-}
-
-.nounderline {
-    text-decoration: none;
+    background: #F5EBD8;
 }
 
 hr {
-    color: #9370db;
+    color: #C97C5D;
 }
 
-.formface, a.button {
+.formface, a.button,
+form[name="filter"] input[type="submit"] {
+    background: #D5CABD;
+    color: #2C3E50;
+    border: 1px solid #C97C5D;
     font-size: 100%;
-    background: #c8b4d6;
-    color: white;
-    padding: 1px 4px;
-    border: 1px solid #9370db;
+    padding: 4px 8px;
     text-align: center;
-    text-decoration: none;
     cursor: pointer;
+    text-decoration: none;
+}
+
+form[name="filter"] {
+    background: #F9F7F1;
+    padding: 20px;
+    border: 1px solid #D5CABD;
+    color: #2C3E50;
+    font-size: 10pt;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+form[name="filter"] td {
+    font-size: 8pt;
+    color: #2C3E50;
+    padding: 5px;
+}
+
+form[name="filter"] select {
+    background: #F9F7F1;
+    border: 1px solid #C97C5D;
+    color: #2C3E50;
+    padding: 4px;
+    width: 100%;
+    cursor: pointer;
+}
+
+form[name="filter"] select option:checked {
+    background-color: #C97C5D;
+    color: white;
 }
 
 .selectbutton {
-    font-size: 100%;
-    background: #800080;
+    background: #2C3E50;
     color: white;
-    padding: 1px 4px;
-    border: 1px solid #9370db;
+    border: 1px solid #C97C5D;
 }
 
 .deselectbutton {
-    font-size: 100%;
-    background: #cccccc;
-    color: #800080;
-    padding: 1px 4px;
-    border: 1px solid #9370db;
+    background: #CCCCCC;
+    color: #2C3E50;
+    border: 1px solid #C97C5D;
 }
 
 .dpTable {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    text-align: center;
-    color: #4b0082;
-    background-color: #ffffff;
-    border: 1px solid #e5d4f7;
+    color: #2C3E50;
+    background-color: #FFFFFF;
+    border: 1px solid #D5CABD;
 }
 
-.dpTD {
-    border: 1px solid #e5d4f7;
+.dpTD, .dpDayHighlightTD, .dpTDHover, .dpDayTD {
+    border: 1px solid #D5CABD;
+    background-color: #F5EBD8;
+    color: #2C3E50;
 }
 
-.dpDayHighlightTD, .dpTDHover, .dpDayTD {
-    background-color: #d8b4f2;
-    border: 1px solid #e5d4f7;
-    color: white;
-    cursor: pointer;
-}
-
-.dpTitleText {
-    font-size: 12px;
-    color: #4b0082;
+.dpTitleText, .dpButton {
+    color: #2C3E50;
     font-weight: bold;
 }
 
 .dpDayHighlight {
     color: white;
-    font-weight: bold;
+    background: #C97C5D;
 }
 
-.dpButton {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    color: #4b0082;
-    background: #d8b4f2;
-    font-weight: bold;
-    padding: 2px;
-}
-
-form[name="filter"] {
-    background: #f5e6ff;
-    padding: 20px;
-    border: 1px solid #d8b4f2;
-    width: fit-content;
-    margin: 20px auto;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #4b0082;
-    font-size: 10pt;
-}
-
-form[name="filter"] table {
-    border-collapse: collapse;
-    margin: 10px auto;
-}
-
-form[name="filter"] td {
-    padding: 5px;
-    vertical-align: middle;
-    font-size: 8pt;
-    color: #4b0082;
-}
-
-form[name="filter"] select {
-    background: #e5d4f7;
-    scrollbar-color: #4b0082 #e5d4f7;
-    color: #4b0082;
-    border: 1px solid #9370db;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 8pt;
-    padding: 4px;
-    width: 100%;
-    min-width: 120px;
-    cursor: pointer;
-}
-
-form[name="filter"] select option:checked {
-    background-color: #9a79dd;
-    color: white;
-}
-
-form[name="filter"] select#abteilung {
-    width: 250px;
-}
-
-form[name="filter"] select#jahr,
-form[name="filter"] select#monat {
-    width: 90px;
-}
-
-form[name="filter"] select#auswahl {
-    width: 200px;
-}
-
-form[name="filter"] input[type="submit"] {
-    background: #c8b4d6;
-    color: white;
-    font-size: 10pt;
-    border: 1px solid #9370db;
-    padding: 4px 8px;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 26px;
-    width: 80px;
-    text-align: center;
-    transition: background 0.3s;
-}
-
-form[name="filter"] input[type="submit"]:hover {
-    background: #9370db;
-}
-
-/* Forms */
-form[name="tagesjournaldienstplan"],
-form[name="dienstanweisung"],
-form[name="m_und_e"],
-form[name="p"],
-form[name="ue"],
-form[name="rue"] {
-    background: #f5e6ff;
+form[name^="tagesjournal"],
+form[name^="dienstanweisung"],
+form[name^="m_und_e"],
+form[name^="p"],
+form[name^="ue"],
+form[name^="rue"] {
+    background: #F9F7F1;
     padding: 12px;
-    border: 1px solid #e0e0e0;
-    width: fit-content;
-    margin: 12px auto;
-    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #E0E0E0;
     border-radius: 12px;
+    margin: 12px auto;
+    width: fit-content;
 }
 
-/* Table */
-form[name="tagesjournaldienstplan"] table,
-form[name="dienstanweisung"] table,
-form[name="m_und_e"] table,
-form[name="p"] table,
-form[name="ue"] table,
-form[name="rue"] table {
-    border-collapse: collapse;
-}
-
-/* Table Cells */
-form[name="tagesjournaldienstplan"] td,
-form[name="dienstanweisung"] td,
-form[name="m_und_e"] td,
-form[name="p"] td,
-form[name="ue"] td,
-form[name="rue"] td {
-    padding: 8px;
-}
-
-/* Buttons */
-form[name="tagesjournaldienstplan"] input[type="button"],
-form[name="dienstanweisung"] input[type="button"],
-form[name="m_und_e"] input[type="button"],
-form[name="p"] input[type="button"],
-form[name="ue"] input[type="button"],
-form[name="rue"] input[type="button"] {
-    background: #b39ddb;
-    color: #ffffff;
+form[name^="tagesjournal"] input[type="button"],
+form[name^="dienstanweisung"] input[type="button"],
+form[name^="m_und_e"] input[type="button"],
+form[name^="p"] input[type="button"],
+form[name^="ue"] input[type="button"],
+form[name^="rue"] input[type="button"] {
+    background: #C97C5D;
+    color: white;
     font-size: 11pt;
-    border: none;
     height: 32px;
     width: 260px;
-    cursor: pointer;
     border-radius: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: normal;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
+    border: none;
 }
 
-/* Button Hover */
-form[name="tagesjournaldienstplan"] input[type="button"]:hover,
-form[name="dienstanweisung"] input[type="button"]:hover,
-form[name="m_und_e"] input[type="button"]:hover,
-form[name="p"] input[type="button"]:hover,
-form[name="ue"] input[type="button"]:hover,
-form[name="rue"] input[type="button"]:hover {
-    background: #9575cd;
+form[name^="tagesjournal"] input[type="button"]:hover,
+form[name^="dienstanweisung"] input[type="button"]:hover,
+form[name^="m_und_e"] input[type="button"]:hover,
+form[name^="p"] input[type="button"]:hover,
+form[name^="ue"] input[type="button"]:hover,
+form[name^="rue"] input[type="button"]:hover {
+    background: #A65C48;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }

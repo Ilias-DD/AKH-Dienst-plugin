@@ -3,10 +3,11 @@
     max-width: 100%;
     margin: 0 auto;
     padding: 20px;
-    background: #fff;
+    background: #FAF9F6;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.08);
     font-family: Arial, sans-serif;
+    color: #2C3E50;
 }
 
 /* Calendar header */
@@ -14,7 +15,7 @@
     text-align: center;
     margin-bottom: 20px;
     font-size: 1.5em;
-    color: rgb(138, 56, 88);
+    color: #2C3E50;
 }
 
 /* Calendar table */
@@ -26,8 +27,8 @@
 
 /* Table headers (weekdays) */
 .calendar th {
-    background: rgb(238, 174, 202);
-    color: #fff;
+    background: #E9C46A;
+    color: #2C3E50;
     padding: 10px;
     text-align: center;
     font-weight: bold;
@@ -39,20 +40,20 @@
     width: 14.28%;
     height: 100px;
     vertical-align: top;
-    background: rgba(238, 174, 202, 0.3);
+    background: #F5EBD8;
     border-radius: 10px;
     padding: 10px;
     position: relative;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* Floating effect on hover */
 .calendar td:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background: rgba(238, 174, 202, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #F9F7F1;
 }
 
 /* Day number */
@@ -61,7 +62,7 @@
     top: 5px;
     left: 5px;
     font-size: 0.9em;
-    color: rgb(138, 56, 88);
+    color: #2C3E50;
     font-weight: bold;
 }
 
@@ -69,8 +70,8 @@
 .calendar .shift-info {
     margin-top: 20px;
     font-size: 0.85em;
-    color: #fff;
-    background: rgb(138, 56, 88);
+    color: white;
+    background: #C97C5D;
     padding: 5px;
     border-radius: 5px;
     text-align: center;
@@ -80,41 +81,41 @@
 .calendar .vacations {
     margin-top: 20px;
     font-size: 0.85em;
-    color: #fff;
-    background: rgb(81, 138, 56);
+    color: white;
+    background: #81A684;
     padding: 5px;
     border-radius: 5px;
     text-align: center;
 }
 
-/* Vacations */
+/* Normal day */
 .calendar .normal-day {
     margin-top: 20px;
     font-size: 0.85em;
-    color: black;
-    background: rgb(192, 192, 192);
+    color: #2C3E50;
+    background: #D5CABD;
     padding: 5px;
     border-radius: 5px;
     text-align: center;
 }
 
-/*Research Abroad*/
+/* Research Abroad */
 .calendar .research-abroad {
     margin-top: 20px;
     font-size: 0.85em;
-    color: #fff;
-    background: rgb(137, 138, 56);
+    color: white;
+    background: #7D8F69;
     padding: 5px;
     border-radius: 5px;
     text-align: center;
 }
 
-/*Research vienna*/
+/* Research Vienna */
 .calendar .research-vienna {
     margin-top: 20px;
     font-size: 0.85em;
-    color: black;
-    background: rgb(213, 215, 85);
+    color: #2C3E50;
+    background: #E9D985;
     padding: 5px;
     border-radius: 5px;
     text-align: center;
@@ -127,19 +128,19 @@
     align-items: center;
     margin-bottom: 20px;
     padding: 10px;
-    background: rgba(238, 174, 202, 0.3);
+    background: #F9F7F1;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(44, 62, 80, 0.05);
 }
 
 /* Shift Select Dropdown */
 .shift-select {
     padding: 8px;
-    border: 2px solid rgb(138, 56, 88);
+    border: 2px solid #2C3E50;
     border-radius: 5px;
-    background: #fff;
+    background: white;
     font-size: 1em;
-    color: rgb(138, 56, 88);
+    color: #2C3E50;
     cursor: pointer;
 }
 
@@ -154,8 +155,8 @@
     padding: 8px 15px;
     border: none;
     border-radius: 5px;
-    background: rgb(138, 56, 88);
-    color: #fff;
+    background: #2C3E50;
+    color: white;
     font-size: 1em;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -164,8 +165,8 @@
 
 .shift-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background: rgb(160, 70, 100);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background: #1E2A35;
 }
 
 /* Responsive design */
@@ -190,8 +191,8 @@
     bottom: 0%;
     left: 50%;
     transform: translateX(-50%) translateY(-8px);
-    background: rgba(238, 174, 202, 0.95);
-    color: rgb(138, 56, 88);
+    background: #F9F7F1;
+    color: #2C3E50;
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 0.85em;
@@ -204,14 +205,14 @@
 .shift-responsibles-container .resp-title {
     font-weight: 600;
     font-size: 0.9em;
-    background: rgba(138, 56, 88, 0.1);
+    background: #EDEAE0;
     padding: 4px 8px;
     border-radius: 5px;
-    color: rgb(138, 56, 88);
+    color: #2C3E50;
     text-align: center;
     margin-bottom: 6px;
     letter-spacing: 0.3px;
-    box-shadow: inset 0 0 2px rgba(138, 56, 88, 0.1);
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.05);
 }
 
 .calendar td:hover .shift-responsibles-container {

@@ -71,7 +71,6 @@ function generate(){
     controllers.appendChild(createPreviousMonthButton());
     controllers.appendChild(swithcButton);
     controllers.appendChild(createNextMonthButton());
-    controllers.style.backgroundColor='#e5d4f7';
 
     const container = document.createElement('div');
     container.id = 'shift-calendar-container';
@@ -168,6 +167,7 @@ controllers.className="shift-buttons";
 controllers.style.position = 'absolute';
 controllers.style.width = '100vw';
 controllers.style.zIndex = "10000";
+controllers.style.backgroundColor='#E9C46A';
 document.documentElement.appendChild(controllers);
 
 const body = document.createElement("div");
