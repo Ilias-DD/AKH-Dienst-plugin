@@ -20,7 +20,7 @@
       ],
       "css": [
         "styles/preloadHide.css",
-         "styles/purpleCalendarTheme.css"
+         "styles/calendar.css"
         ],
       "run_at": "document_start"
     },
@@ -40,7 +40,7 @@
       "css": [
         "styles/preloadHide.css",
         "styles/globalStyle.css",
-        "styles/purpleCalendarTheme.css"
+        "styles/calendar.css"
     ],
     "run_at": "document_start"
     },

@@ -61,7 +61,7 @@
     position: absolute;
     top: 5px;
     left: 5px;
-    font-size: 0.9em;
+    font-size: 1.3em;
     color: #2C3E50;
     font-weight: bold;
 }
@@ -69,7 +69,7 @@
 /* Shift information */
 .calendar .shift-info {
     margin-top: 20px;
-    font-size: 0.85em;
+    font-size: 1.2em;
     color: white;
     background: #C97C5D;
     padding: 5px;
@@ -80,7 +80,7 @@
 /* Vacations */
 .calendar .vacations {
     margin-top: 20px;
-    font-size: 0.85em;
+    font-size: 1.2em;
     color: white;
     background: #81A684;
     padding: 5px;
@@ -91,7 +91,7 @@
 /* Normal day */
 .calendar .normal-day {
     margin-top: 20px;
-    font-size: 0.85em;
+    font-size: 1.2em;
     color: #2C3E50;
     background: #D5CABD;
     padding: 5px;
@@ -102,9 +102,9 @@
 /* Research Abroad */
 .calendar .research-abroad {
     margin-top: 20px;
-    font-size: 0.85em;
-    color: white;
-    background: #7D8F69;
+    font-size: 1.2em;
+    color: black;
+    background: #ac9f61;
     padding: 5px;
     border-radius: 5px;
     text-align: center;
@@ -113,9 +113,9 @@
 /* Research Vienna */
 .calendar .research-vienna {
     margin-top: 20px;
-    font-size: 0.85em;
+    font-size: 1.2em;
     color: #2C3E50;
-    background: #E9D985;
+    background: #f3e7aa;
     padding: 5px;
     border-radius: 5px;
     text-align: center;
