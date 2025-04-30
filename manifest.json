@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Shift Calendar View",
+  "name": "AKH-Dienst-plugin",
   "version": "1.0",
   "description": "Mordernize AKH's shift manager UI.",
   "icons": {
