@@ -45,8 +45,7 @@ function generate(){
       shiftsForThisMonth.push(shiftElement);
     }
 
-  const controllers = document.createElement("div");
-  controllers.className="shift-buttons";
+  
   // Create switch view button
   const swithcButton = createButton('hide-button', "Show ugly view", () => {
     const calendar = document.getElementById('calendarToHide');
@@ -55,13 +54,16 @@ function generate(){
         calendar.style.opacity = "0";
         calendar.style.pointerEvents = "none";
         body.style.pointerEvents = "none";
+        body.style.opacity = "0"
         hideBtn.textContent = `Show nice view`;
         controllers.style.pointerEvents = "auto"
+        controllers.style.opacity = "1";
     }
     else{
         calendar.style.opacity = "1";
         calendar.style.pointerEvents = "auto";
         body.style.pointerEvents = "auto";
+        body.style.opacity = "1";
         hideBtn.textContent = `Show ugly view`;
     }
     });
@@ -69,7 +71,6 @@ function generate(){
     controllers.appendChild(createPreviousMonthButton());
     controllers.appendChild(swithcButton);
     controllers.appendChild(createNextMonthButton());
-    body.appendChild(controllers);
     controllers.style.backgroundColor='#e5d4f7';
 
     const container = document.createElement('div');
@@ -161,6 +162,13 @@ function getShiftClass(shiftType){
 
   return "normal-day";
 }
+
+const controllers = document.createElement("div");
+controllers.className="shift-buttons";
+controllers.style.position = 'absolute';
+controllers.style.width = '100vw';
+controllers.style.zIndex = "10000";
+document.documentElement.appendChild(controllers);
 
 const body = document.createElement("div");
 body.className = 'monthly-view';
