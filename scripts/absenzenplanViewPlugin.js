@@ -41,9 +41,18 @@ function generate(){
     const { dienstMonth, dienstYear } = extractDate();
     for(let i = 2; i < rows[3].children.length; i++){
       let date = new Date(dienstYear, dienstMonth,  parseInt(rows[1].children[i - 2].textContent.trim() ,10));
+      let isPublicHoliday = rows[3].children[i].className.toLowerCase().includes("feiertag");
       let shiftType = rows[3].children[i].querySelector("font");
       if(!shiftType)
       {
+        if(isPublicHoliday){
+          let shiftElement = {
+            date: date,
+            personName: name.replace(/<br>/g, ''),
+            isPublicHoliday: isPublicHoliday,
+          }
+          shiftsForThisMonth.push(shiftElement);
+        }
         console.log("Day " + i + " is a free day :)");
         continue;
       }
@@ -55,8 +64,9 @@ function generate(){
         type: shiftType,
         personName: name.replace(/<br>/g, ''),
         infoClass: getShiftClass(shiftType),
+        isPublicHoliday: isPublicHoliday,
       }
-      
+      console.log(shiftElement);
       shiftsForThisMonth.push(shiftElement);
     }
 

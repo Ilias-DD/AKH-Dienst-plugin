@@ -169,6 +169,10 @@
     background: #1E2A35;
 }
 
+.public-holiday{
+    background-color: #c6eec9 !important;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .calendar td {

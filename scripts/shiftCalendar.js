@@ -108,10 +108,10 @@ function createShiftCalendar(shifts, personName, month, year, containerId) {
                                                     respsType.includes(sh.type));
                                     }
                                     return `
-                                    <td>
+                                    <td class="${shift && shift.isPublicHoliday ? "public-holiday" : ""}">
                                         <div class="td-wrapper">
                                             <div class="day-number">${day}</div>
-                                            ${shift ? `<div class="${shift.infoClass ? shift.infoClass : "shift-info"}">${shift.type}</div>` : ''}
+                                            ${shift && shift.type ? `<div class="${shift.infoClass ? shift.infoClass : "shift-info"}">${shift.type}</div>` : ''}
                                             ${
                                                 (responsibles && responsibles.length) 
                                                     ? `<div class="shift-responsibles-container">
