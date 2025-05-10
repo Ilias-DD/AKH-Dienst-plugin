@@ -48,5 +48,10 @@
       "matches":["https://edm.meduniwien.ac.at/login.php"],
       "css": ["styles/loginView.css"]
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "akh-dienst-plugin@adonforge.com"
+    }
+  }
 } 
