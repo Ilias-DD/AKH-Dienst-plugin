@@ -1,0 +1,31 @@
+name: Package Browser Extension
+
+on:
+  push:
+    tags:
+      - 'v*'  # Triggers on version tags like v1.0.0
+
+jobs:
+  build-and-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create ZIP for Chrome
+        run: |
+          mkdir -p dist
+          zip -r dist/extension-chrome.zip scripts/ styles/ manifest.json icons/
+
+      - name: Create ZIP for Firefox
+        run: |
+          zip -r dist/extension-firefox.zip scripts/ styles/ manifest.json icons/
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/extension-chrome.zip
+            dist/extension-firefox.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
