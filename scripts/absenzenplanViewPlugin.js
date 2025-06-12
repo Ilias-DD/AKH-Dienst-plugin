@@ -93,6 +93,7 @@ function generate(){
     }
     });
 
+    homePageButtonContainer.appendChild(createHomePageButton());
     controllers.appendChild(createPreviousMonthButton());
     controllers.appendChild(swithcButton);
     controllers.appendChild(createExportToIcs());
@@ -190,13 +191,16 @@ function getShiftClass(shiftType){
   return "normal-day";
 }
 
+const controlsContainer = document.createElement('div');
+controlsContainer.className = 'shift-controls-absenzplan';
+const homePageButtonContainer = document.createElement('div');
+homePageButtonContainer.className = 'home-page-button-container';
 const controllers = document.createElement("div");
 controllers.className="shift-buttons";
-controllers.style.position = 'absolute';
-controllers.style.width = '100vw';
-controllers.style.zIndex = "10000";
-controllers.style.backgroundColor='#E9C46A';
-document.documentElement.appendChild(controllers);
+
+controlsContainer.appendChild(homePageButtonContainer);
+controlsContainer.appendChild(controllers);
+document.documentElement.appendChild(controlsContainer);
 
 const body = document.createElement("div");
 body.className = 'monthly-view';

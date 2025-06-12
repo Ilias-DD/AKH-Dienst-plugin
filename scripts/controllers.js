@@ -276,6 +276,12 @@ function createPreviousMonthButton(){
     });
 }
 
+function createHomePageButton() {
+    return createButton('home-page-button', "Auswahl", function(){
+        window.location.href ='/'
+    })
+}
+
 function createNextMonthButton(){
     return createButton('nextMonth-button', "NEXT >>", function(){
         let { dienstMonth, dienstYear } = extractDate();
