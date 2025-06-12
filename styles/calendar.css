@@ -133,6 +133,17 @@
     box-shadow: 0 2px 4px rgba(44, 62, 80, 0.05);
 }
 
+/* Shift Controls Container */
+.shift-controls-absenzplan{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    z-index: 10000;
+    background-color: #E9C46A;
+}
+
 /* Shift Select Dropdown */
 .shift-select {
     padding: 8px;
@@ -157,7 +168,6 @@
     border-radius: 5px;
     background: #2C3E50;
     color: white;
-    font-size: 1em;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
